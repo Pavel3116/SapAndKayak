@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет | SUP & Kayak</title>
+    <link rel="icon" type="image/x-icon" href="./favicon/Mask groupICO.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #3B79BF 0%, #2A8BF2 50%, #FF8C42 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .logo span:first-child {
+            background: linear-gradient(45deg, #3B79BF, #2A8BF2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .logo span:last-child {
+            background: linear-gradient(45deg, #BA5D39, #FF8C42);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            background: #2A8BF2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .btn-logout {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .btn-logout:hover {
+            background: #ff3742;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+        
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .menu {
+            list-style: none;
+        }
+        
+        .menu li {
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .menu li:hover {
+            background: #f0f7ff;
+        }
+        
+        .menu li.active {
+            background: #2A8BF2;
+            color: white;
+        }
+        
+        .user-details {
+            margin-top: 20px;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            width: 150px;
+            color: #555;
+        }
+        
+        .detail-value {
+            flex: 1;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #444;
+            margin-bottom: 15px;
+        }
+        
+        .welcome-message {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <a href="first.html" class="logo">
+                <span>SUP</span>
+                <span style="color: #396fd4;">&</span>
+                <span>Kayak</span>
+            </a>
+            
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">U</div>
+                <div>
+                    <strong id="userName">Пользователь</strong><br>
+                    <span id="userEmail" style="font-size: 0.9rem; color: #666;"></span>
+                </div>
+                <button class="btn-logout" onclick="logout()">Выйти</button>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <h2>Меню</h2>
+                <ul class="menu">
+                    <li class="active" onclick="showSection('profile')">👤 Профиль</li>
+                    <li onclick="showSection('bookings')">📅 Мои бронирования</li>
+                    <li onclick="showSection('kayaks')">🚤 Каяки и SUP</li>
+                    <li onclick="showSection('payment')">💳 Способы оплаты</li>
+                    <li onclick="showSection('settings')">⚙️ Настройки</li>
+                </ul>
+                
+                <div class="user-details" id="profileSection">
+                    <h2>Информация</h2>
+                    <div class="detail-row">
+                        <div class="detail-label">Имя:</div>
+                        <div class="detail-value" id="detailFirstName"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Фамилия:</div>
+                        <div class="detail-value" id="detailLastName"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Email:</div>
+                        <div class="detail-value" id="detailEmail"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Телефон:</div>
+                        <div class="detail-value" id="detailPhone"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content">
+                <h1>Личный кабинет</h1>
+                <div class="welcome-message" id="welcomeMessage">
+                    Добро пожаловать в ваш личный кабинет!
+                </div>
+                
+                <div id="contentSections">
+                    <div id="profileContent" class="section">
+                        <h2>Мой профиль</h2>
+                        <p>Здесь вы можете управлять вашими данными и настройками аккаунта.</p>
+                    </div>
+                    
+                    <div id="bookingsContent" class="section" style="display: none;">
+                        <h2>Мои бронирования</h2>
+                        <p>Здесь будут отображаться ваши текущие и прошлые бронирования.</p>
+                    </div>
+                    
+                    <div id="kayaksContent" class="section" style="display: none;">
+                        <h2>Каяки и SUP доски</h2>
+                        <p>Просмотр доступных каяков и SUP досок для аренды.</p>
+                    </div>
+                    
+                    <div id="paymentContent" class="section" style="display: none;">
+                        <h2>Способы оплаты</h2>
+                        <p>Управление вашими платежными методами.</p>
+                    </div>
+                    
+                    <div id="settingsContent" class="section" style="display: none;">
+                        <h2>Настройки аккаунта</h2>
+                        <p>Изменение пароля и других настроек.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Проверяем авторизацию
+        const token = localStorage.getItem('auth_token');
+        const userData = localStorage.getItem('user');
+        
+        if (!token || !userData) {
+            // Если нет токена или данных пользователя, перенаправляем на страницу входа
+            window.location.href = 'index.html';
+        }
+        
+        let user = null;
+        try {
+            user = JSON.parse(userData);
+        } catch (e) {
+            console.error('Ошибка парсинга данных пользователя:', e);
+            window.location.href = 'index.html';
+        }
+        
+        // Заполняем данные пользователя
+        document.addEventListener('DOMContentLoaded', function() {
+            if (user) {
+                // Имя пользователя в шапке
+                document.getElementById('userName').textContent = 
+                    `${user.first_name || ''} ${user.last_name || ''}`.trim() || user.username;
+                document.getElementById('userEmail').textContent = user.email || '';
+                
+                // Аватар с первой буквой имени
+                const firstName = user.first_name || user.username;
+                document.getElementById('userAvatar').textContent = firstName.charAt(0).toUpperCase();
+                
+                // Приветственное сообщение
+                document.getElementById('welcomeMessage').textContent = 
+                    `Добро пожаловать, ${user.first_name || user.username}!`;
+                
+                // Детали в профиле
+                document.getElementById('detailFirstName').textContent = user.first_name || 'Не указано';
+                document.getElementById('detailLastName').textContent = user.last_name || 'Не указано';
+                document.getElementById('detailEmail').textContent = user.email || 'Не указано';
+                document.getElementById('detailPhone').textContent = user.phone_number || 'Не указано';
+            }
+        });
+        
+        // Функции для меню
+        function showSection(sectionId) {
+            // Скрываем все секции
+            document.querySelectorAll('.section').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Показываем выбранную секцию
+            document.getElementById(sectionId + 'Content').style.display = 'block';
+            
+            // Обновляем активный пункт меню
+            document.querySelectorAll('.menu li').forEach(el => {
+                el.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        
+        // Выход из аккаунта
+        async function logout() {
+            const token = localStorage.getItem('auth_token');
+            
+            try {
+                // Отправляем запрос на выход (если API поддерживает)
+                await fetch('http://127.0.0.1:8000/api/users/logout/', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Token ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+            } catch (error) {
+                console.log('Выход выполнен (ошибка API игнорируется)');
+            }
+            
+            // Очищаем локальное хранилище
+            localStorage.removeItem('auth_token');
+            localStorage.removeItem('user');
+            localStorage.removeItem('isLoggedIn');
+            
+            // Перенаправляем на страницу входа
+            window.location.href = 'index.html';
+        }
+        
+        // Проверка токена каждые 5 минут
+        setInterval(async () => {
+            const token = localStorage.getItem('auth_token');
+            if (!token) return;
+            
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/users/profile/', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Token ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    // Если токен невалидный, выходим
+                    logout();
+                }
+            } catch (error) {
+                console.log('Проверка токена не удалась');
+            }
+        }, 5 * 60 * 1000); // 5 минут
+    </script>
+</body>
+</html>

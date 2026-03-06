@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация | SUP & Kayak</title>
+    <link rel="icon" type="image/x-icon" href="./favicon/Mask groupICO.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #3B79BF 0%, #2A8BF2 50%, #FF8C42 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .register-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+        
+        .logo span:first-child {
+            background: linear-gradient(45deg, #3B79BF, #2A8BF2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .logo span:last-child {
+            background: linear-gradient(45deg, #BA5D39, #FF8C42);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .required {
+            color: #ff4757;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #2A8BF2;
+            box-shadow: 0 0 0 3px rgba(42, 139, 242, 0.1);
+        }
+        
+        .btn-register {
+            background: linear-gradient(45deg, #3b3dbf, #db7807);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .btn-register:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(42, 139, 242, 0.3);
+        }
+        
+        .btn-register:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            margin-top: 5px;
+            font-size: 0.85rem;
+            display: none;
+        }
+        
+        .success-message {
+            color: #28a745;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #d4edda;
+            border-radius: 5px;
+            display: none;
+            text-align: center;
+        }
+        
+        .login-link {
+            margin-top: 25px;
+            text-align: center;
+            color: #666;
+        }
+        
+        .login-link a {
+            color: #2A8BF2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .password-strength {
+            margin-top: 5px;
+            height: 4px;
+            border-radius: 2px;
+            background: #ddd;
+            overflow: hidden;
+        }
+        
+        .strength-bar {
+            height: 100%;
+            width: 0;
+            transition: width 0.3s ease, background 0.3s ease;
+        }
+        
+        .strength-text {
+            font-size: 0.8rem;
+            margin-top: 3px;
+            text-align: right;
+        }
+        
+        .terms {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .terms input {
+            width: auto;
+            margin-right: 8px;
+        }
+        
+        .terms label {
+            display: inline;
+            font-weight: normal;
+        }
+        
+        .terms a {
+            color: #2A8BF2;
+            text-decoration: none;
+        }
+        
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #2A8BF2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+            display: none;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 600px) {
+            .register-container {
+                padding: 25px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <a href="first.html" class="logo">
+            <span>SUP</span>
+            <span style="color: #396fd4;">&</span>
+            <span>Kayak</span>
+        </a>
+        
+        <h2>Создать аккаунт</h2>
+        
+        <form id="registerForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="last_name">Фамилия <span class="required">*</span></label>
+                    <input type="text" id="last_name" name="last_name" placeholder="Павлов" required>
+                    <div class="error-message" id="last_name_error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="first_name">Имя <span class="required">*</span></label>
+                    <input type="text" id="first_name" name="first_name" placeholder="Павел" required>
+                    <div class="error-message" id="first_name_error"></div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="patronymic">Отчество</label>
+                <input type="text" id="patronymic" name="patronymic" placeholder="Павлович">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="ваш@email.com" required>
+                <div class="error-message" id="email_error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone_number">Телефон <span class="required">*</span></label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="+7 (912) 345-67-89" required>
+                <div class="error-message" id="phone_error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Имя пользователя <span class="required">*</span></label>
+                <input type="text" id="username" name="username" placeholder="ivanov2024" required>
+                <div class="error-message" id="username_error"></div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Пароль <span class="required">*</span></label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    <div class="password-strength">
+                        <div class="strength-bar" id="strengthBar"></div>
+                    </div>
+                    <div class="strength-text" id="strengthText"></div>
+                    <div class="error-message" id="password_error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password2">Повторите пароль <span class="required">*</span></label>
+                    <input type="password" id="password2" name="password2" placeholder="••••••••" required>
+                    <div class="error-message" id="password2_error"></div>
+                </div>
+            </div>
+            
+            <div class="terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">
+                    Я согласен с <a href="#">условиями использования</a> и 
+                    <a href="#">политикой конфиденциальности</a> <span class="required">*</span>
+                </label>
+                <div class="error-message" id="terms_error"></div>
+            </div>
+            
+            <div class="success-message" id="successMessage"></div>
+            
+            <button type="submit" class="btn-register" id="submitBtn">
+                <span class="loader" id="loader"></span>
+                <span id="btnText">Зарегистрироваться</span>
+            </button>
+        </form>
+        
+        <div class="login-link">
+            Уже есть аккаунт? <a href="index.html">Войти</a>
+        </div>
+    </div>
+
+    <script>
+        // API базовый URL
+        const API_URL = 'http://127.0.0.1:8000/api/users/';
+        
+        // Элементы формы
+        const form = document.getElementById('registerForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const loader = document.getElementById('loader');
+        const successMessage = document.getElementById('successMessage');
+        
+        // Пароль strength
+        const passwordInput = document.getElementById('password');
+        const strengthBar = document.getElementById('strengthBar');
+        const strengthText = document.getElementById('strengthText');
+        
+        // Проверка сложности пароля
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+            let text = '';
+            let color = '#ddd';
+            
+            if (password.length > 7) strength += 25;
+            if (/[A-Z]/.test(password)) strength += 25;
+            if (/[0-9]/.test(password)) strength += 25;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 25;
+            
+            if (strength === 0) {
+                text = '';
+            } else if (strength <= 25) {
+                text = 'Слабый';
+                color = '#ff4757';
+            } else if (strength <= 50) {
+                text = 'Средний';
+                color = '#ffa502';
+            } else if (strength <= 75) {
+                text = 'Хороший';
+                color = '#2ed573';
+            } else {
+                text = 'Отличный';
+                color = '#1e90ff';
+            }
+            
+            strengthBar.style.width = strength + '%';
+            strengthBar.style.background = color;
+            strengthText.textContent = text;
+            strengthText.style.color = color;
+        });
+        
+        // Проверка совпадения паролей
+        document.getElementById('password2').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const password2 = this.value;
+            const errorElement = document.getElementById('password2_error');
+            
+            if (password2 && password !== password2) {
+                showError('password2_error', 'Пароли не совпадают');
+            } else {
+                hideError('password2_error');
+            }
+        });
+        
+        // Форматирование телефона
+        document.getElementById('phone_number').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.startsWith('7') || value.startsWith('8')) {
+                value = value.substring(1);
+            }
+            
+            if (value.length > 0) {
+                value = '+7 (' + value;
+                if (value.length > 7) value = value.substring(0, 7) + ') ' + value.substring(7);
+                if (value.length > 12) value = value.substring(0, 12) + '-' + value.substring(12);
+                if (value.length > 15) value = value.substring(0, 15) + '-' + value.substring(15);
+                if (value.length > 18) value = value.substring(0, 18);
+            }
+            
+            e.target.value = value;
+        });
+        
+        // Валидация email
+        document.getElementById('email').addEventListener('blur', function() {
+            const email = this.value;
+            const errorElement = document.getElementById('email_error');
+            
+            if (email && !validateEmail(email)) {
+                showError('email_error', 'Введите корректный email');
+            } else {
+                hideError('email_error');
+            }
+        });
+        
+        // Функции для отображения/скрытия ошибок
+        function showError(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.style.display = 'block';
+        }
+        
+        function hideError(elementId) {
+            const element = document.getElementById(elementId);
+            element.style.display = 'none';
+        }
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Отправка формы
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Сброс ошибок
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Проверка обязательных полей
+            const requiredFields = ['last_name', 'first_name', 'email', 'phone_number', 'username', 'password', 'password2'];
+            let isValid = true;
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    showError(fieldId + '_error', 'Это поле обязательно для заполнения');
+                    isValid = false;
+                }
+            });
+            
+            // Проверка согласия с условиями
+            if (!document.getElementById('terms').checked) {
+                showError('terms_error', 'Необходимо согласиться с условиями');
+                isValid = false;
+            }
+            
+            // Проверка паролей
+            const password = document.getElementById('password').value;
+            const password2 = document.getElementById('password2').value;
+            
+            if (password !== password2) {
+                showError('password2_error', 'Пароли не совпадают');
+                isValid = false;
+            }
+            
+            if (password.length < 8) {
+                showError('password_error', 'Пароль должен быть не менее 8 символов');
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Показываем загрузку
+            submitBtn.disabled = true;
+            loader.style.display = 'inline-block';
+            btnText.textContent = 'Регистрация...';
+            
+            try {
+                // Подготовка данных
+                const formData = {
+                    username: document.getElementById('username').value,
+                    email: document.getElementById('email').value,
+                    password: document.getElementById('password').value,
+                    password2: document.getElementById('password2').value,
+                    first_name: document.getElementById('first_name').value,
+                    last_name: document.getElementById('last_name').value,
+                    phone_number: document.getElementById('phone_number').value.replace(/\D/g, '')
+                };
+                
+                // Отправка запроса
+                const response = await fetch(API_URL + 'register/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Успешная регистрация
+                    successMessage.textContent = 'Регистрация успешна! Перенаправление на страницу входа...';
+                    successMessage.style.display = 'block';
+                    
+                    // Сохраняем токен
+                    if (data.token) {
+                        localStorage.setItem('auth_token', data.token);
+                        localStorage.setItem('user', JSON.stringify(data.user));
+                    }
+                    
+                    // Редирект через 2 секунды
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                    
+                } else {
+                    // Ошибки от сервера
+                    if (data.username) {
+                        showError('username_error', data.username[0]);
+                    }
+                    if (data.email) {
+                        showError('email_error', data.email[0]);
+                    }
+                    if (data.password) {
+                        showError('password_error', data.password[0]);
+                    }
+                    if (data.non_field_errors) {
+                        showError('email_error', data.non_field_errors[0]);
+                    }
+                    
+                    throw new Error(data.detail || 'Ошибка регистрации');
+                }
+                
+            } catch (error) {
+                console.error('Ошибка:', error);
+                showError('email_error', error.message || 'Ошибка подключения к серверу');
+            } finally {
+                // Скрываем загрузку
+                submitBtn.disabled = false;
+                loader.style.display = 'none';
+                btnText.textContent = 'Зарегистрироваться';
+            }
+        });
+        
+        // Автозаполнение для тестирования
+        function fillTestData() {
+            document.getElementById('last_name').value = 'Павлов';
+            document.getElementById('first_name').value = 'Павел';
+            document.getElementById('patronymic').value = 'Павлович';
+            document.getElementById('email').value = 'test@example.com';
+            document.getElementById('phone_number').value = '+7 (912) 345-67-89';
+            document.getElementById('username').value = 'testuser_' + Math.floor(Math.random() * 1000);
+            document.getElementById('password').value = 'TestPass123';
+            document.getElementById('password2').value = 'TestPass123';
+            document.getElementById('terms').checked = true;
+            
+            // Триггерим события для обновления UI
+            passwordInput.dispatchEvent(new Event('input'));
+            document.getElementById('password2').dispatchEvent(new Event('input'));
+        }
+        
+        // Для тестирования можно раскомментировать:
+        // fillTestData();
+    </script>
+</body>
+</html>

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sup&Kaik</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="./favicon/Mask groupICO.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #ffffff;
+            --accent-color: #FF7C4A;
+            --light-color: #ffffff;
+            --dark-color: #464545;
+            --text-color: #333;
+            --light-text: #fff;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: url('./img/RR.jpg');
+    background-size: cover; /* Растягивает изображение на весь экран */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Запрещает повторение */
+    background-attachment: fixed; /* Фиксирует фон при скролле */
+    margin: 0;
+    min-height: 100vh;
+    
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        
+        /* Стили для верхней информационной панели */
+        .top-info {
+            background-color: #464545;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-info .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .top-info a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        
+        .top-info button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        /* Стили для навигационного меню */
+        .main-nav {
+            background: linear-gradient(45deg, #f0b547,#f3aed4, #5948bb);
+            
+            background-color: #cac8c8;
+            opacity: 0.76;
+            padding: 15px 0;
+        }
+        
+        .main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF7C4A;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            
+        }
+        
+        .nav-links a {
+            color: rgb(27, 25, 23);
+            text-decoration: none;
+            margin-left: 25px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Стили для шапки */
+        header {
+            background: linear-gradient(rgba(241, 232, 202, 0.3), rgba(48, 41, 28, 0.8)), url('./img/image.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            padding: 0px 0 400px;
+            text-align: center;
+        }
+        
+        header h1 {
+            padding-top: 30px;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            padding: 12px 30px;
+            
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Стили для секций */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            font-size: 2.2rem;
+        }
+        
+        /* Стили для раздела "Аренда снаряжения" */
+        .equipment {
+            background-color: rgba(255, 255, 255, 0.49);
+            
+            background-color: var(--light-color);
+        }
+        
+        .equipment-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .equipment-text {
+            flex: 1;
+            min-width: 300px;
+            
+        }
+        
+        .equipment-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .equipment-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Стили для раздела "Выберите приключение" */
+        .adventures {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 200px;
+            justify-content: center;
+            
+        }
+        
+        .adventure-card {
+            opacity: 0.89;
+            padding: 25px;
+            background: linear-gradient(#d5e4f7, #f09d7c);
+            
+            background-color: rgb(253, 250, 235);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(255, 254, 254, 0.5);
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            transition: transform 0.3s ease;
+        }
+        
+        .adventure-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .adventure-image {
+            height: auto;
+            overflow: hidden;
+        }
+        
+        .adventure-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            border-radius: 50%;
+        }
+        
+        .adventure-card:hover .adventure-image img {
+            transform: scale(1.1);
+        }
+        
+        .adventure-content {
+            padding: 20px;
+        }
+        
+        .adventure-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Стили для раздела "Почему мы" */
+        .why-us {
+            
+            background-color: var(--light-color);
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .feature {
+            background: linear-gradient(#d5e4f7, #e98f6c);
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Стили для FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: var(--dark-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        /* Стили для формы */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        /* Стили для контактов */
+        .contacts {
+            background-color: var(--dark-color);
+            color: var(--light-text);
+            padding: 60px 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+        
+        .contact-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        
+        /* Стили для футера */
+        footer {
+            background-color: #464545;
+            color: var(--light-text);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .top-info .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .main-nav .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                margin: 0 10px 5px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .equipment-content {
+                flex-direction: column;
+            }
+            .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .Print{
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            font-size: 2.2rem;
+            border-bottom: 3px solid #FF7C4A;
+            padding-bottom: 10px;
+        }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Верхняя информационная панель -->
+    <div class="top-info">
+        <div class="container">
+            <div>
+                <a href="tel:89692005825">8<span style="color:#FBBB0A"> (969)</span> 200 58 25 (звонок бесплатный)</a>
+                <a href="#">Работаем с <span style="color:#FBBB0A">07:00</span> до <span style="color:#FBBB0A"> 19:00 </span> МСК</a>
+            </div>
+            
+        <a href="index.html" title="Главная страница"><img src="./favicon/Mask groupLK.png" alt="Личный кабинет" style="height: 30px;"></a>
+        </div>
+    </div>
+    <header>
+    <!-- Основная навигация -->
+    <nav class="main-nav">
+        <div class="container">
+            <div style="display: flex; gap: 12px;">
+                <img src="./img/Mask groupICO.png" >
+                <a href="home" class="logo" style="
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+">
+    <span style="
+        background: linear-gradient(45deg, #3B79BF, #2A8BF2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    ">SUP</span>
+    <span style="color: #396fd4;">&</span>
+    <span style="
+        background: linear-gradient(45deg, #BA5D39, #FF8C42);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    ">Kayak</span>
+</a>
+            </div>
+
+            
+            <div class="nav-links">
+                <!--
+                <div class="dropdown">
+                    <button class="dropbtn"> Аренда</button>
+                    <div class="dropdown-content">
+                        <a href="home">Сапов</a>
+                        <a href="home">Каяков</a>
+                        <a href="home">другого оборудования</a>
+                    </div>
+                </div>
+                -->
+                <a href="ВыборАренды2.html">Аренда</a>
+                <a href="ВыборТуров2.html">Туры/прогулки</a>
+                <a href="Галерея2.html">Галерея</a>
+                <a href="оНас2.html">О нас</a>
+                <a href="Контакты2.html">Контакты</a>
+                <a href="Отзовы2.html">Отзывы</a>
+
+            </div>
+            
+            <a href="#contact"><button class="btn">Оставить заявку</button></a>
+        
+        </div>
+    </nav>
+    <!-- Шапка -->
+    
+        <div class="container">
+            <h1 style="padding-top: 200px;">ОТКРОЙТЕ МИР ВОДНЫХ ПРИКЛЮЧЕНИЙ</h1>
+            <p>Аренда оборудования и увлекательные туры на Сапах и Каяках</p>
+            <!-- Ссылка на форму забронировать-->
+            <a href="ВыборТуров.html"   class="btn" style="background: linear-gradient(45deg, #7472e6, #FF8C42); margin-left: 15px;">Выбрать тур</a> 
+            <a href="ВыборАренды.html"   class="btn" style="background: linear-gradient(45deg, #7472e6, #FF8C42);">Арендовать</a> 
+        </div>
+    </header>
+
+    <!-- Остальной контент без изменений -->
+    <!-- Секция аренды снаряжения -->
+    <section class="equipment" style="opacity: 0.89;">
+        <div class="container">
+            <h2 class="section-title">Аренда снаряжения и туры с гидом</h2>
+            <p>
+                <strong><em>SUP&Kayak</em></strong> — это незабываемые водные приключения по доступным ценам. Хотите спокойной прогулки по водной глади <br>
+                        или активного исследования береговой линии — у нас есть всё для вашего идеального дня на воде!!!
+            </p>
+            
+        </div>
+    </section>
+
+    <!-- Секция выбора приключения -->
+    <section id="adventures" style="background-color: rgba(255, 255, 255, 0.89);  ">
+        <div class="container">
+            <h2 class="section-title">Какое приключение выбрать?</h2>
+            <div class="adventures">
+                
+                <div class="adventure-card">
+                    <div class="adventure-image">
+                        <img src="./img/Mask group3.png" alt="Аренда оборудования">
+                    </div>
+                    <div class="adventure-content">
+                        <a href="ВыборАренды.html" style="text-decoration: none;"><h3><span style="text-align: center;  border-bottom: 3px solid #FF7C4A;">Аренда оборудования</span></h3></a>
+                        <p>Идеально для тех, кто хочет свободы и самостоятельности. Берите снаряжение и отправляйтесь в собственное приключение!</p>
+                    </div>
+                </div>
+                <div class="adventure-card">
+                    <div class="adventure-image">
+                        <img src="./img/Mask group.png" alt="Туры с гидом">
+                    </div>
+                    <div class="adventure-content">
+                        <a href="ВыборТуров.html" style="text-decoration: none;"><h3 style="text-align: center; border-bottom: 3px solid #FF7C4A;">Туры/прогулки с гидом</h3></a>
+                        <p>Для тех, кто хочет исследовать береговую линию и скрытые бухты. Каякинг, сапы — это возможность добраться до мест, недоступных с суши, и увидеть природу с совершенно нового. Идеально подходит для пар, компаний и семейного отдыха.</p>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "Почему мы" -->
+    <section class="why-us" style="background-color: rgba(255, 255, 255, 0.89);">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Экипировка и доски</h3>
+                    <p>Предоставляем всё необходимое для катания: гидрокостюмы, жилеты, доски и пончо на случай, если вы замёрзнете.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌊</div>
+                    <h3>Низкие цены</h3>
+                    <p>У нас самые низкие цены! Скидки при прохождение квестов и зданий в лк.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Гбкий гирафик</h3>
+                    <p>Мы работаем по удобному для вас графику и предлагаем различные варианты аренды - от нескольких часов до нескольких дней.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💬</div>
+                    <h3>Индивидуальный подход</h3>
+                    <p>Мы учитываем пожелания каждого клиента и готовы предложить решение, которое идеально подойдет именно вам.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция FAQ -->
+    <section style="background-color: #ffffff; opacity: 0.89;  background: linear-gradient(#f0efee, #afaca1);">
+        <div class="container">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Нужен ли опыт для аренды оборудования?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Для аренды большинства видов оборудования опыт не требуется. Наши инструкторы проведут краткий инструктаж и помогут освоиться с оборудованием.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Что включено в стоимость тура?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>В стоимость тура включено все необходимое снаряжение, услуги гида, страховка и, в большинстве случаев, питание (уточняйте при бронировании).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли отменить бронирование?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, бронирование можно отменить бесплатно за 48 часов до начала. При отмене позже этого срока может взиматься частичная оплата.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Что делать в случае плохой погоды?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>При неблагоприятных погодных условиях мы предлагаем перенести бронирование на другую дату или вернуть полную стоимость.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция контактов -->
+    <section id="contact" style="background: url('https://i.pinimg.com/736x/04/e6/dd/04e6dd5116be00096969afde94908986.jpg'); background-size: cover;
+            background-position: center;" >
+        <div class="container">
+            <h2 class="section-title">Хочу попробовать!</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Электронная почта</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" class="form-control" rows="5" placeholder="Расскажите о ваших пожеланиях..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Контактная информация -->
+    <section class="contacts">
+        <div class="container">
+            <h2   style="color: white; text-align: center; border-bottom: 3px solid #FF7C4A; padding-bottom: 10px; margin-bottom: 50px;">Наши контакты</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Контакты</h3>
+                    <p>Телефон: +7 (969) 200-58-25</p>
+                    <p>Email: pavlikgena23@gmail.com</p>
+                    <p>Адрес: г. СПБ</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Часы работы</h3>
+                    <p>Пн-Пт: 9:00 - 20:00</p>
+                    <p>Сб-Вс: 8:00 - 22:00</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Социальные сети</h3>
+                    <p>Telegram: https://t.me/KasperHello</p>
+                    <p>VK: https://vk.com/kaspermerryfellow</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SUP&Kayak Водные Приключения. Все права защищены.</p>
+            <p>Разработано с любовью к водным видам спорта</p>
+        </div>
+    </footer>
+
+    <script>
+        // Функциональность для FAQ
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                // Меняем значок +/-
+                const icon = question.querySelector('span:last-child');
+                icon.textContent = item.classList.contains('active') ? '-' : '+';
+            });
+        });
+        
+        // Обработка формы
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

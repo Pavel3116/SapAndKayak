@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sup&Kaik</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="./favicon/Mask groupICO.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #ffffff;
+            --accent-color: #FF7C4A;
+            --light-color: #ffffff;
+            --dark-color: #464545;
+            --text-color: #333;
+            --light-text: #fff;
+            --arend-color: #c4ab68;
+            --Kart-color: #FFF4F4;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin:  auto;
+            padding: 10 15px;
+            
+            
+        }
+        
+        
+        /* Стили для верхней информационной панели */
+        .top-info {
+            background-color: #464545;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-info .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .top-info a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        
+        .top-info button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        /* Стили для навигационного меню */
+        .main-nav {
+            background-color: #cac8c8;
+            opacity: 0.76;
+            padding: 15px 0;
+        }
+        
+        .main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF7C4A;
+            text-decoration: none;
+        }
+        .logo2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8d8d8d;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgb(27, 25, 23);
+            text-decoration: none;
+            margin-left: 25px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Стили для шапки */
+        header {
+            background: linear-gradient(rgba(241, 232, 202, 0.3), rgba(48, 41, 28, 0.8)), url('./img/image.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            padding: 0px 0 200px;
+            text-align: center;
+        }
+        
+        header h1 {
+            padding-top: 30px;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            padding: 12px 30px;
+            
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn2 {
+            background: #FBBB0A;
+            display: inline-block;
+            background-color: var(--arend-color);
+            color: var(--light-text);
+            padding: 12px 30px;
+            display: block;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn3{
+            background: linear-gradient(#eee1bd, #B9932A);
+            display: inline-block;
+            background-color: var(--arend-color);
+            color: var(--light-text);
+            padding: 6px 40px;
+            display: block;
+            
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Стили для секций */
+        section {
+            padding: 30px 0;
+        
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            font-size: 2.2rem;
+            border-bottom: 3px solid #FF7C4A;
+            padding-bottom: 10px;
+        }
+        
+    
+        /*стили для раздела "Аренда сапов не дорого"*/
+        .benefit{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            padding-top:20px ;
+            overflow-x: auto; 
+
+        }
+        .benefit-image{
+            flex: 3;
+            min-width: 300px;
+            max-width: 700px;
+        }
+        .benefit-image img{
+            width: 100%;
+            object-fit: cover;
+            height: auto;
+            object-position: center center;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        .benefit-content{
+            background-color: #ffffff;
+            overflow: hidden;
+            flex: 1;
+            min-width: 400px;
+            max-width: 500px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 254, 254, 0.1);
+
+        }
+        .benefit-content h3{
+            color: #2c5282;
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 3px solid #FF7C4A;
+            padding-bottom: 10px;
+        }
+        .benefit-image picture,
+        .benefit-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+        /*Блок наши цены*/
+        .prices-text{
+            padding-top: 20px;
+            text-align: center;
+        }
+        .prices-text h3{
+            color: #2c5282;
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 2px solid #FF7C4A;
+            padding-bottom: 10px;
+        }
+        
+        /* стили для варианты братия сапов*/
+        .options{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 57px;
+            justify-content: center;
+            padding-top: 10px;
+            overflow-x: auto; 
+
+        }
+        .optinos-content{
+            background-color: #e7e7e7;
+            overflow: hidden;
+            flex: 1;
+            min-width: 350px;
+            max-width: 380px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 254, 254, 0.1);
+            
+        }
+        .options-text{
+            padding-top: 20px;
+            text-align: center;
+        }
+        /* Стилт для аренды на мероприятия*/
+        .events{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 70px;
+            padding-top: 10px;
+            overflow-x: auto;
+            margin-bottom: 40px;
+
+        }
+        .events-content{
+            background-color: #ffffff;
+            overflow: hidden;
+            flex: 2;
+            min-width: 350px;
+            max-width: 380px;
+            transition: transform 0.3s ease;
+        }
+        .events-image{
+            flex: 3;
+            min-width: 380px;
+            max-width: 800px;
+            
+
+        }
+        .events-image img{
+            width: 100%;
+            
+            object-fit: cover;
+            /* border-radius: 15px; */
+        }
+        .events-content h3{
+            color: #2c5282;
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 3px solid #FF7C4A;
+            padding-bottom: 10px;
+        }
+        /* Стили для контактов */
+        .contacts {
+            background-color: var(--dark-color);
+            color: var(--light-text);
+            padding: 60px 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+        
+        .contact-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        
+        /* Стили для футера */
+        footer {
+            background-color: #464545;
+            color: var(--light-text);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .top-info .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .main-nav .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                margin: 0 10px 5px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .equipment-content {
+                flex-direction: column;
+            }
+            .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        }
+        
+        .centred-list {
+    display: inline-block;
+    text-align: left;
+    padding-left: 0;
+    list-style: none; /* Убираем стандартные маркеры */
+}
+
+.centred-list li {
+    position: relative;
+    padding-left: 25px; /* Отступ для маркера */
+    margin-bottom: 10px;
+    color: #666; /* Серый цвет текста */
+    font-size: 16px;
+}
+
+.centred-list li::before {
+    content: "•";
+    color: #FF7C4A; /* Оранжевый цвет точки */
+    font-size: 24px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+        /* ////////////////////////////////////////////*/
+        /* НОВЫЕ СТИЛИ ДЛЯ ПОСЛЕДНЕЙ СЕКЦИИ */
+.conditions-section {
+    padding: 60px 0;
+}
+
+.conditions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.conditions-image {
+    flex: 3;
+    min-width: 300px;
+    max-width: 700px;
+}
+
+.conditions-text {
+    flex: 2;
+    min-width: 250px;
+    max-width: 450px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    
+}
+
+.conditions-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    /* border-radius: 15px; */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.conditions-text h2 {
+    color: #2c5282;
+    margin-bottom: 20px;
+    font-size: 28px;
+    border-bottom: 3px solid #FF7C4A;
+    padding-bottom: 10px;
+}
+
+.conditions-text p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.requirements-list {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 5px solid #FF7C4A;
+}
+
+.requirements-list h3 {
+    color: #2c5282;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.requirements-list ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.requirements-list ul li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.requirements-list ul li:before {
+    content: "•";
+    color: #FF7C4A;
+    font-size: 20px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+.additional-equipment {
+    margin-top: 25px;
+}
+
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.equipment-item {
+    background-color: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #D9D9D9;
+    text-align: center;
+}
+
+.equipment-item .item-name {
+    font-weight: bold;
+    color: #2c5282;
+    margin-bottom: 5px;
+}
+
+.equipment-item .item-price {
+    color: #FF7C4A;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.important-note {
+    background-color: #fff8e1;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 25px;
+    border-left: 5px solid #ffc107;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .conditions-container {
+        flex-direction: column;
+    }
+    
+    .conditions-image img {
+        height: 350px;
+    }
+    
+    .conditions-text {
+        max-width: 100%;
+    }
+    /* Стили для контактов */
+        .contacts {
+            background-color: var(--dark-color);
+            color: var(--light-text);
+            padding: 60px 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+        
+        .contact-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+}
+    </style>
+</head>
+<body>
+    <!-- Верхняя информационная панель -->
+    <div class="top-info">
+        <div class="container">
+            <div>
+                <a href="tel:89692005825">8<span style="color:#FBBB0A"> (969)</span> 200 58 25 (звонок бесплатный)</a>
+                <a href="#">Работаем с <span style="color:#FBBB0A">07:00</span> до <span style="color:#FBBB0A"> 19:00 </span> МСК</a>
+            </div>
+            <button class="btn">Войти/Зарегистрироваться</button>
+        </div>
+    </div>
+    <header>
+    <!-- Основная навигация -->
+    <nav class="main-nav">
+        <div class="container">
+            <div style="display: flex; gap: 12px;">
+                <img src="./img/Mask groupICO.png" >
+                <a href="home" class="logo" style="
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+">
+    <span style="
+        background: linear-gradient(45deg, #3B79BF, #2A8BF2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    ">SUP</span>
+    <span style="color: #396fd4;">&</span>
+    <span style="
+        background: linear-gradient(45deg, #BA5D39, #FF8C42);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    ">Kayak</span>
+</a>
+            </div>
+            <div class="nav-links">
+                
+                <a href="ВыборАренды.html"><span style="color: #FBBB0A;">Аренда</span></a>
+                <a href="ВыборТуров.html">Туры/прогулки</a>
+                <a href="Галерея.html">Галерея</a>
+                <a href="оНас.html">О нас</a>
+                <a href="Контакты.html">Контакты</a>
+                <a href="Отзовы.html">Отзывы</a>
+
+            </div>
+            
+            <button class="btn">Оставить заявку</button>
+        
+        </div>
+    </nav>
+    <!-- Шапка -->
+    
+        <div class="container">
+            <h1 style="padding-top: 100px; text-align: left ;">Аренда Каяков в СПБ</h1>
+            <h2 style="text-align: left;"><a href="first.html" class="logo2">Главная</a></h2>
+            
+        </div>
+    </header>
+
+    <selection id="benefit">
+        <div class="container">
+            <div class="benefit">
+                <div class="benefit-content">
+                    <div class="benefit-image" >
+                        <img src="./img/imageDog.png" style="margin-bottom: 40px;"  alt="девушка на сапе" >
+                    </div>
+                </div>
+                
+
+                <div class="benefit-content">
+                    <div>
+                    <h3>О прокате Каяков в Санкт-Петербурге</h3>
+                    <h2>Арендуйте Каяк выгодно!</h2>
+                    <p style="width:auto ;">Команда SUP&Kayak приглашает вас провести выходные активно,<br> весело и с пользой. Откройте для себя мир водных приключений!
+                    </p>
+                    <h2>Почему каякинг? </h2>
+                    <p>Этот вид отдыха идеально подходит для любителей природы и<br> активного образа жизни. Каякинг позволяет насладиться<br> живописными видами с воды, почувствовать единение<br> с природой и получить незабываемые впечатления. Всего за 20-30 минут инструктажа вы освоите базовые навыки управления<br> каяком и сможете отправиться в самостоятельное плавание по<br> рекам, озерам или каналам.
+                    </p>
+                    
+                    </div>
+                </div>
+                
+            </div>
+        
+        </div>
+        
+    </selection>
+
+    <selection>
+            <div class="container">
+                <div class="events">
+                    <div class="events-content">
+                        <h3>Почему аренда — отличный выбор?</h3>
+                            <p>
+                                Покупка собственного каяка требует значительных затрат.   
+                            </p>
+
+                            <div>
+                                <h2>Аренда — идеальный вариант для:</h2>
+                                <div class="requirements-list">
+                                    <ul>
+                                        <li> новичков, желающих попробовать новый вид активного отдыха</li>
+                                        <li>тех, кто катается несколько раз в сезон</li>
+                                        <li>  всех, кто ценит удобство и экономию</li>
+                                        
+                                    </ul>
+                                </div>
+
+
+                                <h2>Наши преимущества:</h2>
+                                <div class="requirements-list">
+                                    <ul>
+                                        <li> Доступные цены на прокат </li>
+                                        <li> Cовременные каяки — ежегодно обновляем парк </li>
+                                        <li> Полный комплект снаряжения в одном месте (каяк, весло, спасательный<br>жилет, гидромешок) </li>
+                                        <li> Профессиональные консультации по выбору маршрутов</li>
+                                        <li> Гибкие условия аренды (почасово и посуточно)</li>
+                                        <li> Быстрая доставка по Санкт-Петербургу от 500 рублей</li>
+                                        
+                                    </ul>
+                                </div>
+                                <h2>Как воспользоваться услугой?</h2>
+
+                                <p>При получении оборудования потребуется <strong>паспорт</strong>. Вы подписываете <br>договор аренды и акт приёма-передачи снаряжения.<br><br> Начните свое водное приключение уже сегодня! Откройте для себя Санкт-Петербург <br>с новой стороны — с воды!</p>
+                                
+                                
+                        
+                            </div>
+                    </div>
+                    <div class="events-image">
+                        <img src="./img/73e2f3fcd8eefc1bf3eb4b65c6d648cc.jpg">
+                    </div>
+
+                </div>
+            </div>
+        </selection>
+
+        <selectoin id="prices">
+            <div class="container" >
+                <div class="prices-text" style="margin-left: 20%; margin-right: 20%;">
+                    <h3>----Наши цены----</h3>
+                    <p>
+                    Стоимость аренды каяков в Санкт-Петербурге<br>
+                    Мы сдаем оборудование на день, на сутки или на неделю.<br>
+                    За услугу необходима предоплата 25% — перевод на карту.<br>
+                    </p>
+                    <br>
+                    <h3>Базовый комплект снаряжения:</h3>
+                        <ul class="centred-list">
+                            <li>Каяк (одноместный/двухместный/трехместный)</li>
+                            <li>весло</li>
+                            <li> Спасательный жилет</li>
+                            <li>Юбка (защита от попадания воды в каяк)</li>
+                            <li>Гермомешок для вещей</li>
+                        </ul>
+                    
+                    <h3>Почасовая аренда сапа:</h3>
+                    <p>
+                        До 12–00 стоимость 500 руб/час<br>
+                        С 12–00 до 18–00 стоимость 700 руб/час <br>
+                        После 19–00 стоимость 800 руб/час<br><br>
+                    </p>
+                </div>
+                
+            </div>
+        </selectoin>
+
+    <selection>
+        <div class="container">
+            <div class="options">
+                <div class="optinos-content" >
+                    <div style="background: url('./img/Mask\ group37.png');" >
+                        <h1 style="text-align: center; padding-top:243px ;font-size: 40px; color: #FFF5DE;">3500р</h1>
+                        <p class="options-text" style="padding-bottom: 50px;  color: #FFF5DE;">Прокат на сутки</p>
+                    </div>
+                    <div>
+                        <p style="padding-top: 25px; padding-bottom: 20px; text-align: center;">✔1 день с понедельника по четверг —  <br> 3500 рублей<br>✔Выходные (пятница, суббота, воскресенье) — 4000 рублей за день</p>
+                    </div>
+                    <button class="btn2" style="padding-bottom: 20px;  margin: 30px auto; ">Арендовать</button>
+                </div>
+                <div class="optinos-content">
+                    <div class="optinos-content" style="background: url('./img/Mask\ group\ 38.png');" >
+                    <div  >
+                        <h1 style="text-align: center; padding-top:73px ;font-size: 40px; color: #FFF5DE;">6000р</h1>
+                        <p class="options-text" style="margin-bottom: 70px; color: #FFD665;">Прокат на 3 суток в будни</p>
+                        <p style="padding-top: 25px; padding-bottom: 146px; text-align: center; color: var(--Kart-color);">Прокат на 3 суток в будни<br><br>✔ По будням (пн-чт) 6000 рублей за сутки  <br>✔ Прокат на все выходные с пятницы по воскресенье – 7000 рублей</p>
+                        <button class="btn2" style="padding-bottom: 20px;  margin: 30px auto; ">Арендовать</button>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="optinos-content">
+                    <div style="background: url('./img/Mask\ group39.png');" >
+                        <h1 style="text-align: center; padding-top:243px ;font-size: 40px; color: #FFF5DE;">12000р</h1>
+                        <p class="options-text" style="padding-bottom: 50px;  color: #FFF5DE;">Аренда на неделю</p>
+                    </div>
+                    <div>
+                        <p style="padding-top: 25px; padding-bottom: 20px; text-align: center;">✔ Самая выгодная цена проката за сутки<br>✔ Каяк на неделю в вашем распоряжении</p>
+                            
+                    </div>
+                    <button class="btn2" style="padding-bottom: 20px;  margin: 30px auto; margin-top: 80px;">Арендовать</button>
+                    
+                </div>
+
+
+
+            </div>
+        </div>
+    </selection>
+
+
+
+    <selection id="benefit" >
+            <div class="container" style="padding-top: 40px;">
+                <div class="benefit">
+                    <div class="benefit-content">
+                        <div class="benefit-image" >
+                            <img src="./img/Mask group40.png" style="margin-bottom: 40px;"  alt="девушка на сапе" >
+                        </div>
+                    </div>  
+                    
+
+                    <div class="benefit-content">
+                        <h2>Условия проката каяков в Санкт-Петербурге</h2>
+                    <p>На рынке водных видов спорта мы работаем более 5 лет. За это время мы заслужили доверие клиентов, многие из которых обращаются к нам постоянно и советуют друзьям.</p>
+                    
+                    <div class="requirements-list">
+                        <h3>Основные условия:</h3>
+                        <ul>
+                            <li>Прокат доступен для лиц от 16 лет <br>(с 16 до 18 лет — в присутствии взрослого или с письменного разрешения родителей)</li>
+                            <li> Грузоподъемность каяка: одноместный — до 120 кг, двухместный — до 220 кг</li>
+                            <li>На одноместном каяке — 1 человек, на двухместном — максимум 2 человека</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Для оформления аренды потребуется:</h3>
+                    <ul>
+                        <li><strong>Залог</strong> — 5000 рублей наличными за 1 каяк. При сдаче сапа в полной сохранности залог возвращается.</li>
+                        <li><strong>Паспорт РФ</strong> для заключения договора аренды + акта приема-передачи.</li>
+                    </ul>
+
+                    
+                    <div class="important-note">
+                        <p><strong>Важно:</strong> Залог принимается только наличными. Документы возвращаются при сдаче оборудования.</p>
+                    </div>
+                    <div class="additional-equipment">
+                        <h3>Дополнительное оборудование:</h3>
+                        <p>Отдельно в аренду можно взять:</p>
+                        
+                        <div class="equipment-grid">
+                            <div class="equipment-item">
+                                <div class="item-name">Гидросумка</div>
+                                <div class="item-price">300 руб/сутки</div>
+                            </div>
+                            <div class="equipment-item">
+                                <div class="item-name">Шлем</div>
+                                <div class="item-price">300 руб/сутки</div>
+                            </div>
+                            <div class="equipment-item">
+                                <div class="item-name">Гидрокостюм</div>
+                                <div class="item-price">500 руб/сутки</div>
+                            </div>
+                            <div class="equipment-item">
+                                <div class="item-name">Чехол для телефона</div>
+                                <div class="item-price">100 руб/сутки</div>
+                            </div>
+                            <div class="equipment-item">
+                                <div class="item-name">Спасжилет</div>
+                                <div class="item-price">300 руб/сутки</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 20px; font-style: italic;">
+                        В наличии каяки топовых производителей, которые показали себя в деле как надежные и износоустойчивые.
+                    </p>
+                    </div>
+                    
+                </div>
+            
+            </div>
+            
+        </selection>
+
+
+
+
+
+    <selection>
+        <div class="container">
+            <div class="events">
+                <div class="events-content">
+                    <h3>Аренда каяков на мероприятия</h3>
+                    <p>Организуем прокат каяков для корпоративных мероприятий, фестивалей и праздников. Стоимость аренды рассчитывается индивидуально — для получения расчета свяжитесь с нашим менеджером и уточните 
+                        </p>
+
+                        <div>
+                            <h2>Детали:</h2>
+                            <div class="requirements-list">
+                                <ul>
+                                    <li>дата проведения</li>
+                                    <li>время проведения</li>
+                                    <li>продолжительность аренды</li>
+                                    <li>количество необходимых комплектов каяков</li>
+                                    <li>Требуется ли доставка и возврат </li>
+                                    <li>адрес проведения мероприятоия</li>
+                                    <li>понадобится ли сопровождающий инструктор или инструкторы</li>
+                                </ul>
+                            </div>
+                            <h2>Мы готовы предложить:</h2>
+                            <div class="requirements-list">
+                                <ul>
+                                    <li>Различные модели каяков (одно, двухместные и трёхместные)</li>
+                                    <li>Полное снаряжение (весла, жилеты, юбки и гермомешки)</li>
+                                    <li>Профессиональных инструкторов</li>
+                                    <li>Организацию водных активностей и маршрутов</li>
+                                </ul>
+                            </div>
+                            <p>Создадим незабываемое водное приключение для вашего мероприятия!!</p>
+                    
+                        </div>
+                </div>
+                <div class="events-image">
+                    <img src="./img/image 45.png">
+                </div>
+
+            </div>
+        </div>
+    </selection>
+
+    <selection style=" background-color: #464545;">
+
+        <div style=" background-color: #464545; display: flex; gap: 30%; padding-top: 41px; padding-bottom: 40px ; padding-right: 20px; margin-bottom: 30px;">
+            <div style="padding-left: 15%;">
+                <p style="color: white;">
+                    Остались вопросы или есть сомнения?<br>Оставье номер телефона, и мы все расскажем
+                </p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <textarea id="message" rows="1" placeholder="+7(000) 000-00-00" style="width: 300px; height: 40px;"></textarea>
+                <button class="btn3" >Перезвонить</button>
+            </div>
+        </div>
+    </selection>
+
+    <selection>
+        <div class="container">
+            <div class="events">
+                <div class="events-content">
+                    <h3>Правила бронирования и оплаты</h3>
+                    <p>Правила бронирования, отмены или переноса прогулки.<br> <br>Чтобы забронировать место на прогулки, необходимо внести предоплату в размере 2000 ₽/чел.
+                        </p>
+
+                        <div>
+                            <h2>С Вашей стороны:</h2>
+                            <div class="requirements-list">
+                                <ul>
+                                    <li> невозможно отменить, перенести, вернуть предоплату менее чем за 24 часа до прогулки</li>
+                                    <li>если по каким либо причинам Вы не явились на прогулку: Ваша предоплата сгорает, тур не переносится и сумма не учитывается в счёт других участников Вашей группы</li>
+                                    <li> если Вы бронируете тур и вносите предоплату в день проведения мероприятия, у Вас нет возможности вернуть предоплату и перенести на другой день.  </li>
+                                    
+                                </ul>
+                            </div>
+                            <p>Пожалуйста, стройте свои планы заранее!</p>
+                            <h2>Со стороны инструктора:</h2>
+                            <div class="requirements-list">
+                                <ul>
+                                    <li> Аренда может быть отменён и перенесён на другой день из-за погодных условий и невозможности находится на воде только по решению инструктора.</li>
+                                    
+                                </ul>
+                            </div>
+                    
+                        </div>
+                </div>
+                <div class="events-image">
+                    <img src="./img/image 46.png">
+                </div>
+
+            </div>
+        </div>
+    </selection>
+
+
+    <!-- Контактная информация -->
+    <section class="contacts">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Наши контакты</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Контакты</h3>
+                    <p>Телефон: +7 (969) 200-58-25</p>
+                    <p>Email: pavlikgena23@gmail.com</p>
+                    <p>Адрес: г. СПБ</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Часы работы</h3>
+                    <p>Пн-Пт: 9:00 - 20:00</p>
+                    <p>Сб-Вс: 8:00 - 22:00</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Социальные сети</h3>
+                    <p>Telegram: https://t.me/KasperHello</p>
+                    <p>VK: https://vk.com/kaspermerryfellow</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SUP&Kayak Водные Приключения. Все права защищены.</p>
+            <p>Разработано с любовью к водным видам спорта</p>
+        </div>
+    </footer>
+
+
+
+    
+
+
+
+</body>
+</html>
