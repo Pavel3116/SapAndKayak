@@ -1,0 +1,19 @@
+# Директории
+node_modules/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Файлы
+*.log
+*.tmp
+*.cache
+
+# Системные файлы Windows
+desktop.ini
+$RECYCLE.BIN/
+
+# Файлы среды (если используете)
+.env
+.vscode/
