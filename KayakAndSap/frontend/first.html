@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sup&Kaik</title>
-    <link rel="stylesheet" href="index.css">
     <link rel="icon" type="image/x-icon" href="./favicon/Mask groupICO.png">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
         * {
             margin: 0;
@@ -13,7 +14,7 @@
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
         }
-        
+
         :root {
             --primary-color: #ffffff;
             --secondary-color: #ffffff;
@@ -22,115 +23,286 @@
             --dark-color: #464545;
             --text-color: #333;
             --light-text: #fff;
+            --avito-green: #00AA00;
+            --avito-red: #FF0000;
+            --avito-blue: #0AF;
+            --avito-purple: #965EEB;
         }
-        
+
         body {
             color: var(--text-color);
             line-height: 1.6;
             background-image: url('./img/RR.jpg');
-    background-size: cover; /* Растягивает изображение на весь экран */
-    background-position: center; /* Центрирует изображение */
-    background-repeat: no-repeat; /* Запрещает повторение */
-    background-attachment: fixed; /* Фиксирует фон при скролле */
-    margin: 0;
-    min-height: 100vh;
-    
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            min-height: 100vh;
         }
-        
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
-        
-        
-        /* Стили для верхней информационной панели */
+
+        /* Стили для верхней информационной панели как у Авито */
         .top-info {
             background-color: #464545;
             color: white;
             padding: 8px 0;
             font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .top-info .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
-        
+
         .top-info a {
             color: white;
             text-decoration: none;
             margin-right: 20px;
         }
-        
+
         .top-info button {
-            background-color: var(--accent-color);
+            background: linear-gradient(45deg, #7472e6, #FF8C42);
             color: white;
             border: none;
-            padding: 6px 15px;
-            border-radius: 4px;
+            padding: 8px 20px;
+            border-radius: 20px;
             cursor: pointer;
             font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
-        
-        /* Стили для навигационного меню */
-        .main-nav {
+
+        .top-info button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Шапка в стиле Авито */
+        .avito-style-header {
             background: linear-gradient(#f5f4f2, #928781);
-            background-color: #cac8c8;
-            opacity: 0.76;
-            padding: 15px 0;
+            opacity: 0.95;
+            padding: 12px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        
-        .main-nav .container {
+
+        .avito-header-container {
             display: flex;
+            align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Логотип как у Авито но в стиле SUP&Kayak */
+        .avito-logo {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .avito-logo svg {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .logo-text span:first-child {
+            background: linear-gradient(45deg, #3B79BF, #2A8BF2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text span:last-child {
+            background: linear-gradient(45deg, #BA5D39, #FF8C42);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Поисковая строка как у Авито - ИСПРАВЛЕНО */
+        .avito-search {
+            flex: 1;
+            max-width: 500px;
+            min-width: 280px;
+        }
+
+        .search-wrapper {
+            display: flex;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .category-button {
+            background: #f0f0f0;
+            border: none;
+            padding: 12px 15px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #333;
+            border-right: 1px solid #ddd;
+            white-space: nowrap;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 12px 10px;
+            font-size: 1rem;
+            outline: none;
+            min-width: 100px;
+        }
+
+        .search-button {
+            background: linear-gradient(45deg, #7472e6, #FF8C42);
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .search-button:hover {
+            background: linear-gradient(45deg, #5a58b8, #e67a3a);
+        }
+
+        /* Иконки как у Авито */
+        .avito-icons {
+            display: flex;
+            gap: 15px;
             align-items: center;
         }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #FF7C4A;
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
             text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
         }
-        
+
+        .icon-item:hover {
+            color: var(--accent-color);
+        }
+
+        .icon-item svg {
+            width: 22px;
+            height: 22px;
+            margin-bottom: 3px;
+        }
+
+        /* Кнопки входа и размещения */
+        .avito-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .login-btn {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .login-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .post-btn {
+            background: linear-gradient(45deg, #7472e6, #FF8C42);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .post-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Навигационное меню */
+        .main-nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
-            
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
-        
+
         .nav-links a {
-            color: rgb(27, 25, 23);
+            color: #333;
             text-decoration: none;
-            margin-left: 25px;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
         }
-        
+
         .nav-links a:hover {
             color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
         }
-        
-        /* Стили для шапки */
+
+        /* Остальные стили без изменений */
         header {
             background: linear-gradient(rgba(241, 232, 202, 0.3), rgba(48, 41, 28, 0.8)), url('./img/image.png');
             background-size: cover;
             background-position: center;
             color: var(--light-text);
-            padding: 0px 0 400px;
+            padding: 0 0 400px;
             text-align: center;
         }
-        
+
         header h1 {
             padding-top: 30px;
             font-size: 3rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         header p {
             font-size: 1.2rem;
             margin-bottom: 30px;
@@ -138,14 +310,12 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .btn {
-            
             display: inline-block;
             background-color: var(--accent-color);
             color: var(--light-text);
             padding: 12px 30px;
-            
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
@@ -153,32 +323,28 @@
             border: none;
             cursor: pointer;
         }
-        
+
         .btn:hover {
             background-color: var(--primary-color);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
-        /* Стили для секций */
+
         section {
             padding: 80px 0;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 50px;
             color: var(--dark-color);
             font-size: 2.2rem;
         }
-        
-        /* Стили для раздела "Аренда снаряжения" */
+
         .equipment {
             background-color: rgba(255, 255, 255, 0.49);
-            
-            background-color: var(--light-color);
         }
-        
+
         .equipment-content {
             display: flex;
             align-items: center;
@@ -186,41 +352,18 @@
             flex-wrap: wrap;
             gap: 30px;
         }
-        
-        .equipment-text {
-            flex: 1;
-            min-width: 300px;
-            
-        }
-        
-        .equipment-image {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .equipment-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Стили для раздела "Выберите приключение" */
+
         .adventures {
             display: flex;
             flex-wrap: wrap;
             gap: 200px;
             justify-content: center;
-            
         }
-        
+
         .adventure-card {
             opacity: 0.89;
             padding: 25px;
             background: linear-gradient(#d5e4f7, #f09d7c);
-            
             background-color: rgb(253, 250, 235);
             border-radius: 10px;
             overflow: hidden;
@@ -230,16 +373,16 @@
             max-width: 400px;
             transition: transform 0.3s ease;
         }
-        
+
         .adventure-card:hover {
             transform: translateY(-10px);
         }
-        
+
         .adventure-image {
             height: auto;
             overflow: hidden;
         }
-        
+
         .adventure-image img {
             width: 100%;
             height: 100%;
@@ -247,33 +390,18 @@
             transition: transform 0.5s ease;
             border-radius: 50%;
         }
-        
+
         .adventure-card:hover .adventure-image img {
             transform: scale(1.1);
         }
-        
-        .adventure-content {
-            padding: 20px;
-        }
-        
-        .adventure-content h3 {
-            color: var(--dark-color);
-            margin-bottom: 15px;
-        }
-        
-        /* Стили для раздела "Почему мы" */
-        .why-us {
-            
-            background-color: var(--light-color);
-        }
-        
+
         .features {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
             justify-content: center;
         }
-        
+
         .feature {
             background: linear-gradient(#d5e4f7, #e98f6c);
             flex: 1;
@@ -285,25 +413,13 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .feature h3 {
-            color: var(--dark-color);
-            margin-bottom: 15px;
-        }
-        
-        /* Стили для FAQ */
+
         .faq-item {
             margin-bottom: 20px;
             border-bottom: 1px solid #eee;
             padding-bottom: 20px;
         }
-        
+
         .faq-question {
             font-weight: bold;
             color: var(--dark-color);
@@ -312,17 +428,16 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .faq-answer {
             margin-top: 10px;
             display: none;
         }
-        
+
         .faq-item.active .faq-answer {
             display: block;
         }
-        
-        /* Стили для формы */
+
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -331,17 +446,17 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
         }
-        
+
         .form-control {
             width: 100%;
             padding: 12px 15px;
@@ -349,245 +464,284 @@
             border-radius: 5px;
             font-size: 1rem;
         }
-        
-        /* Стили для контактов */
+
         .contacts {
             background-color: var(--dark-color);
             color: var(--light-text);
             padding: 60px 0;
         }
-        
+
         .contact-info {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
             justify-content: space-between;
         }
-        
+
         .contact-item {
             flex: 1;
             min-width: 200px;
         }
-        
+
         .contact-item h3 {
             margin-bottom: 15px;
             color: var(--accent-color);
         }
-        
-        /* Стили для футера */
+
         footer {
             background-color: #464545;
             color: var(--light-text);
             padding: 30px 0;
             text-align: center;
         }
-        
-        /* Адаптивность */
+
+        /* УЛУЧШЕННАЯ АДАПТИВНОСТЬ */
+        @media (max-width: 1330px) {
+            .avito-header-container {
+                gap: 10px;
+            }
+
+            .avito-icons {
+                gap: 10px;
+                display: none;
+            }
+
+            .icon-item span {
+                font-size: 0.7rem;
+            }
+        }
+        @media (max-width:1311){
+            .avito-search{
+                display: none;
+            }
+        }
         @media (max-width: 768px) {
             .top-info .container {
                 flex-direction: column;
                 gap: 10px;
+                text-align: center;
             }
-            
-            .main-nav .container {
+
+            .avito-header-container {
                 flex-direction: column;
-                gap: 15px;
+                align-items: stretch;
             }
-            
-            .nav-links {
-                flex-wrap: wrap;
+
+            .avito-logo {
                 justify-content: center;
             }
-            
-            .nav-links a {
-                margin: 0 10px 5px;
+
+            .avito-search {
+                width: 100%;
+                max-width: none;
+                min-width: auto;
             }
-            
+
+            .search-wrapper {
+                flex-wrap: wrap;
+                border-radius: 15px;
+            }
+
+            .category-button {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+                text-align: left;
+            }
+
+            .search-input {
+                flex: 1;
+                min-width: 150px;
+            }
+
+            .search-button {
+                padding: 12px 20px;
+            }
+
+            .avito-icons {
+                order: 2;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .avito-actions {
+                order: 1;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
             header h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+                padding-top: 150px;
             }
-            
-            .section-title {
-                font-size: 1.8rem;
+
+            header {
+                padding: 0 0 300px;
             }
-            
-            .equipment-content {
+        }
+
+        @media (max-width: 480px) {
+            .search-wrapper {
                 flex-direction: column;
             }
-            .navbar {
-            background-color: #333;
-            overflow: hidden;
-        }
 
-        .navbar a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
+            .category-button {
+                width: 100%;
+                text-align: center;
+            }
 
-        .dropdown {
-            float: left;
-            overflow: hidden;
-        }
+            .search-input {
+                width: 100%;
+                padding: 15px;
+                border-bottom: 1px solid #ddd;
+            }
 
-        .dropdown .dropbtn {
-            border: none;
-            outline: none;
-            color: white;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
-        }
+            .search-button {
+                width: 100%;
+                padding: 12px;
+            }
 
-        .navbar a:hover, .dropdown:hover .dropbtn {
-            background-color: #ddd;
-            color: black;
-        }
+            .avito-actions {
+                flex-direction: column;
+                width: 100%;
+            }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
+            .login-btn,
+            .post-btn {
+                width: 100%;
+                text-align: center;
+            }
 
-        .dropdown-content a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            display: block;
-            text-align: left;
-        }
+            header h1 {
+                font-size: 1.5rem;
+                padding-top: 100px;
+            }
 
-        .dropdown-content a:hover {
-            background-color: #ddd;
+            header p {
+                font-size: 1rem;
+            }
         }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        
-        .Print{
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--dark-color);
-            font-size: 2.2rem;
-            border-bottom: 3px solid #FF7C4A;
-            padding-bottom: 10px;
-        }
-        }
-        
     </style>
 </head>
+
 <body>
-    <!-- Верхняя информационная панель -->
-    <div class="top-info">
-        <div class="container">
-            <div>
-                <a href="tel:89692005825">8<span style="color:#FBBB0A"> (969)</span> 200 58 25 (звонок бесплатный)</a>
-                <a href="#">Работаем с <span style="color:#FBBB0A">07:00</span> до <span style="color:#FBBB0A"> 19:00 </span> МСК</a>
+    <div class="navbar-mobile hide-desktop j-navbar-mobile" data-link="{on 'click' '.navbar-mobile__link' sendAnalytics}" data-jsv="#15^/15^"><a class="navbar-mobile__link" data-wba-header-name="Main_tabbar" data-link-type="home" data-link="href{:(menuModel.isB2B &amp;&amp; menuModel.b2bMainPageEnabled) ? '/business' : '/'}" aria-label="Главная страница" href="/"> <span class="navbar-mobile__icon navbar-mobile__icon--home navbar-mobile__icon--active" data-link="class{merge:menuModel.type == 'home' toggle='navbar-mobile__icon--active'}"></span> </a> <div class="navbar-mobile__wrap"> <button id="catalogNavbarLink" class="navbar-mobile__link" data-wba-header-name="Catalog_tabbar" data-link-type="catalog" aria-label="Каталог" type="button"> <span class="navbar-mobile__icon navbar-mobile__icon--catalog" data-link="class{merge:menuModel.catalogState toggle='navbar-mobile__icon--active'}"></span> </button> </div> <a class="navbar-mobile__link" data-wba-header-name="Cart_tabbar" href="/lk/basket" aria-label="Корзина"> <span class="navbar-mobile__icon navbar-mobile__icon--basket" data-link="class{merge:menuModel.type == 'basket' toggle='navbar-mobile__icon--active'}"> <span class="navbar-mobile__notify hide" data-link="{:menuModel.basketCount}class{merge:!menuModel.basketCount toggle='hide'}"></span> </span> </a> <a class="navbar-mobile__link" data-wba-header-name="Favorites_tabbar" href="/lk/favorites" aria-label="Избранные товары" data-link="{on 'click' showPopupLoginMobile}" data-jsv="#7^/7^"> <span class="navbar-mobile__icon navbar-mobile__icon--favorites" data-link="class{merge:menuModel.type == 'poned' toggle='navbar-mobile__icon--active'}"></span> </a> <a class="navbar-mobile__link" data-wba-header-name="LK_tabbar" href="/lk" aria-label="Личный кабинет" data-link="{on 'click' showPopupLoginMobile}" data-jsv="#9^/9^"> <span class="navbar-mobile__icon navbar-mobile__icon--profile" data-link="class{merge: menuModel.isB2B toggle='navbar-mobile__icon--b2b'}class{merge:(menuModel.type == 'profile' || menuModel.type == 'archive') toggle='navbar-mobile__icon--active'}class{merge: menuModel.isPremium toggle='navbar-mobile__icon--premium'}"> <span class="navbar-mobile__notify hide" data-link="{:(menuModel.eventsModel &amp;&amp; menuModel.eventsModel^eventsCount)}class{merge:!(~root.$auth.isAuth &amp;&amp; menuModel.eventsModel &amp;&amp; menuModel.eventsModel^eventsCount) toggle='hide'}"></span> </span> </a></div>
+    <!-- Шапка в стиле Авито -->
+    <div class="avito-style-header">
+        <div class="container avito-header-container">
+            <!-- Логотип -->
+            <div class="avito-logo">
+                <a href="home" class="logo-text">
+                    <span>SUP</span>&<span>Kayak</span>
+                </a>
             </div>
-            <a href="index.html" ><button  class="btn">Войти/Зарегистрироваться</button></a>
-        
+
+            <!-- Поисковая строка - ИСПРАВЛЕНО -->
+            <div class="avito-search">
+                <div class="search-wrapper">
+                    <button class="category-button" id="my-category-button">Все категории ▼</button>
+                    <input type="text" class="search-input" placeholder="Поиск по объявлениям">
+                    <button class="search-button">Найти</button>
+                </div>
+            </div>
+
+            <!-- Иконки -->
+            <div class="avito-icons">
+                <!-- <a href="#" class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                    </svg>
+                    <span>Профиль</span>
+                </a> -->
+                <a href="#" class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                    <span>Избранное</span>
+                </a>
+                <a href="#" class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+                    </svg>
+                    <span>Корзина</span>
+                </a>
+            </div>
+
+            <!-- Кнопки входа и размещения -->
+            <div class="avito-actions">
+                <button class="login-btn">
+
+
+                    Вход и регистрация</button>
+                <button class="post-btn">+ Разместить объявление</button>
+            </div>
         </div>
     </div>
-    <header>
-    <!-- Основная навигация -->
-    <nav class="main-nav">
+
+<div>
+<div class="styles-module-root-O4ZMa styles-module-root_size_m-J6U91 styles-module-root_preset_inverse-K7UiL" data-marker="more-popup" role="tooltip"><div class="top-rubricator-contentWrapper-zjcWT" role="region" style="top: 183.977px; height: calc(-183.977px + 100vh);"><div class="new-rubricator-content-root-StVNF" role="region"><div class="new-rubricator-content-root_wrapper-mI4B6 new-rubricator-content-root_wrapper_design2023-FPVhU"><div class="new-rubricator-content-root_content-mK6RN"><div class="new-rubricator-content-leftcontent-WHIce"><div role="checkbox" tabindex="0" aria-checked="true" class="styles-module-rootCategory-EP299 styles-module-active-fpPT3" data-marker="top-rubricator/root-category-25984"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/cat_1.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/cat_1.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/cat_1.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/cat_1.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Транспорт</p></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div><div role="checkbox" tabindex="0" aria-checked="false" class="styles-module-rootCategory-EP299" data-marker="top-rubricator/root-category-26113"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/cat_4.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/cat_4.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/cat_4.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/cat_4.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Недвижимость</p></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div><div role="checkbox" tabindex="0" aria-checked="false" class="styles-module-rootCategory-EP299" data-marker="top-rubricator/root-category-26400"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/cat_110.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/cat_110.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/cat_110.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/cat_110.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Работа</p></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div><div role="checkbox" tabindex="0" aria-checked="false" class="styles-module-rootCategory-EP299" data-marker="top-rubricator/root-category-26486"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/cat_114.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/cat_114.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/cat_114.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/cat_114.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Услуги</p></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div><div role="checkbox" tabindex="0" aria-checked="false" class="styles-module-rootCategory-EP299" data-marker="top-rubricator/root-category-26127"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/cat_5.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/cat_5.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/cat_5.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/cat_5.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Личные вещи</p></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div><div role="checkbox" tabindex="0" aria-checked="false" class="styles-module-rootCategory-EP299" data-marker="top-rubricator/root-category-26047"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/cat_2_with_wood.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/cat_2_with_wood.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/cat_2_with_wood.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/cat_2_with_wood.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Для дома и дачи</p></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div><div role="checkbox" tabindex="0" aria-checked="false" class="styles-module-rootCategory-EP299" data-marker="top-rubricator/root-category-30757"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/cat_10.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/cat_10.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/cat_10.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/cat_10.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Запчасти и аксессуары</p></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div><div role="checkbox" tabindex="0" aria-checked="false" class="styles-module-rootCategory-EP299" data-marker="top-rubricator/root-category-26195"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/cat_6.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/cat_6.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/cat_6.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/cat_6.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Электроника</p></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div><div role="checkbox" tabindex="0" aria-checked="false" class="styles-module-rootCategory-EP299" data-marker="top-rubricator/root-category-26315"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/cat_7.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/cat_7.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/cat_7.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/cat_7.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Хобби и отдых</p></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div><div role="checkbox" tabindex="0" aria-checked="false" class="styles-module-rootCategory-EP299" data-marker="top-rubricator/root-category-26098"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/cat_35.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/cat_35.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/cat_35.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/cat_35.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Животные</p></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div><div role="checkbox" tabindex="0" aria-checked="false" class="styles-module-rootCategory-EP299" data-marker="top-rubricator/root-category-26382"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/cat_8.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/cat_8.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/cat_8.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/cat_8.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Бизнес и оборудование</p></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div><div role="checkbox" tabindex="0" aria-checked="false" class="styles-module-rootCategory-EP299" data-marker="top-rubricator/root-category-134693"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv" style="--module-spacer-column-gap: var(--theme-gap-8);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><img width="28" alt="" src="https://www.avito.st/s/avito/components/category_tree/28x22/business360_v2.png" srcset="https://www.avito.st/s/avito/components/category_tree/28x22/business360_v2.png  28w,https://www.avito.st/s/avito/components/category_tree/56x44/business360_v2.png  56w,https://www.avito.st/s/avito/components/category_tree/84x66/business360_v2.png  84w" style="display: block;"></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA styles-module-root_align_center-y32c1" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_2-kVSuA styles-module-margin-bottom_none-kefyU styles-module-root_fullWidth-dP0tv"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-root_grow-teePA" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-pFVzb styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-column-gap: var(--theme-gap-6);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><p class="styles-module-root-PY1ie styles-module-size_m-w6vzl styles-module-size_m-DKJW6 stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-m-__uh9">Бизнес 360</p></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><div class="styles-module-root-uZ5Ka styles-module-root_preset_primary-mjoeZ styles-module-root_size_s-l9iH3"><span class="styles-module-size_xs-uPlWC styles-module-size_xs_dense-UehEK">Новое</span></div></div></div></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU" style="--module-spacer-slot-width: auto;"><svg transform="rotate(270 0 0)" aria-hidden="true" class="styles-module-icon-iiyd6 ChevronDown-module-mask-IbmS_" data-icon-set="zna4ki/kvadratiki" style="--module-icon-size: 20px;"></svg></div></div></div></div></div></div><div class="new-rubricator-content-rightContent-nVnz6 new-rubricator-content-rightContentWithServices-Sk9hd"><h2 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xxxl-PGInq styles-module-size_xxxl_dense-jq85Y styles-module-size_xxxl-wk1P_ styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-3xl-gx4XI"><a data-name="Транспорт" data-cid="1" data-marker="top-rubricator/sub-category-25984" href="/sankt-peterburg/transport" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Транспорт&nbsp;›</a></h2><div class=""><div class="new-rubricator-content-childrenWrapper-OMppq new-rubricator-content-childrenWrapperWithServices-UyXSA"><div class="styles-module-child-QsNNX new-rubricator-content-child_noBreak-uRbWG"><h5 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN"><a data-name="Автомобили" data-cid="9" data-marker="top-rubricator/sub-category-25985" href="/sankt-peterburg/avtomobili" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Автомобили&nbsp;›</a></h5></div><div class="styles-module-child-QsNNX new-rubricator-content-child_noBreak-uRbWG"><h5 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN"><a data-name="Мотоциклы и мототехника" data-cid="14" data-marker="top-rubricator/sub-category-25986" href="/sankt-peterburg/mototsikly_i_mototehnika" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Мотоциклы и мототехника&nbsp;›</a></h5><div class="styles-module-child__item-KsnHW" data-marker="top-rubricator/category-wrapper-25986"><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Вездеходы" data-cid="14" data-marker="top-rubricator/sub-category-25988" href="/sankt-peterburg/mototsikly_i_mototehnika/vezdehody-ASgBAgICAUQ84AE" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Вездеходы</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Картинг" data-cid="14" data-marker="top-rubricator/sub-category-25989" href="/sankt-peterburg/mototsikly_i_mototehnika/karting-ASgBAgICAUQ8zk0" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Картинг</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Квадроциклы и багги" data-cid="14" data-marker="top-rubricator/sub-category-25990" href="/sankt-peterburg/mototsikly_i_mototehnika/kvadrotsikly-ASgBAgICAUQ83AE" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Квадроциклы и багги</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Мопеды и скутеры" data-cid="14" data-marker="top-rubricator/sub-category-25991" href="/sankt-peterburg/mototsikly_i_mototehnika/mopedy_i_skutery-ASgBAgICAUQ82gE" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Мопеды и скутеры</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Мотоциклы" data-cid="14" data-marker="top-rubricator/sub-category-25992" href="/sankt-peterburg/mototsikly_i_mototehnika/mototsikly-ASgBAgICAUQ80k0" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Мотоциклы</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Снегоходы" data-cid="14" data-marker="top-rubricator/sub-category-25998" href="/sankt-peterburg/mototsikly_i_mototehnika/snegohody-ASgBAgICAUQ8oiw" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Снегоходы</a></p></div></div><div class="styles-module-child-QsNNX new-rubricator-content-child_break-n3IOO"><h5 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN"><a data-name="Грузовики и спецтехника" data-cid="81" data-marker="top-rubricator/sub-category-26025" href="/sankt-peterburg/gruzoviki_i_spetstehnika" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Грузовики и спецтехника&nbsp;›</a></h5><div class="styles-module-child__item-KsnHW" data-marker="top-rubricator/category-wrapper-26025"><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Грузовики" data-cid="81" data-marker="top-rubricator/sub-category-26030" href="/sankt-peterburg/gruzoviki_i_spetstehnika/gruzoviki-ASgBAgICAURUkAI" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Грузовики</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Сельхозтехника" data-cid="81" data-marker="top-rubricator/sub-category-26035" href="/sankt-peterburg/gruzoviki_i_spetstehnika/selhoztehnika-ASgBAgICAURUtCw" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Сельхозтехника</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Седельные тягачи" data-cid="81" data-marker="top-rubricator/sub-category-26038" href="/sankt-peterburg/gruzoviki_i_spetstehnika/tyagachi-ASgBAgICAURU5E0" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Седельные тягачи</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Прицепы" data-cid="81" data-marker="top-rubricator/sub-category-26034" href="/sankt-peterburg/gruzoviki_i_spetstehnika/pritsepy-ASgBAgICAURU4k0" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Прицепы</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Экскаваторы" data-cid="81" data-marker="top-rubricator/sub-category-26039" href="/sankt-peterburg/gruzoviki_i_spetstehnika/ekskavatory-ASgBAgICAURU5k0" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Экскаваторы</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-marker="top-rubricator/more-button" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Ещё 11</a></p></div></div><div class="styles-module-child-QsNNX new-rubricator-content-child_noBreak-uRbWG"><h5 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN"><a data-name="Аренда спецтехники" data-cid="114" data-marker="top-rubricator/sub-category-77268" href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki-ASgBAgICAkSYC8SfAZoL3J8B" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Аренда спецтехники&nbsp;›</a></h5><div class="styles-module-child__item-KsnHW" data-marker="top-rubricator/category-wrapper-77268"><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Подъёмная техника" data-cid="114" data-marker="top-rubricator/sub-category-77269" href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki/podyomnaya_tekhnika-ASgBAgICA0SYC8SfAZoL3J8B7o4O8qSNAw" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Подъёмная техника</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Землеройная техника" data-cid="114" data-marker="top-rubricator/sub-category-77270" href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki/zemleroynaya_tekhnika-ASgBAgICA0SYC8SfAZoL3J8B7o4O9KSNAw" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Землеройная техника</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Коммунальная техника" data-cid="114" data-marker="top-rubricator/sub-category-77271" href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki/kommunalnaya_tekhnika-ASgBAgICA0SYC8SfAZoL3J8B7o4Owo_OAQ" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Коммунальная техника</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Дорожно-строительная техника" data-cid="114" data-marker="top-rubricator/sub-category-77272" href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki/dorozhno_stroitelnaya_tekhnika-ASgBAgICA0SYC8SfAZoL3J8B7o4OwpaNAw" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Дорожно-строительная техника</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Грузовой транспорт" data-cid="114" data-marker="top-rubricator/sub-category-77273" href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki/gruzovoy_transport-ASgBAgICA0SYC8SfAZoL3J8B7o4OwI_OAQ" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Грузовой транспорт</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-marker="top-rubricator/more-button" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Ещё 5</a></p></div></div><div class="styles-module-child-QsNNX new-rubricator-content-child_noBreak-uRbWG"><h5 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN"><a data-name="Водный транспорт" data-cid="11" data-marker="top-rubricator/sub-category-26040" href="/sankt-peterburg/vodnyy_transport" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Водный транспорт&nbsp;›</a></h5><div class="styles-module-child__item-KsnHW" data-marker="top-rubricator/category-wrapper-26040"><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Вёсельные лодки" data-cid="11" data-marker="top-rubricator/sub-category-26041" href="/sankt-peterburg/vodnyy_transport/veselnye_lodki-ASgBAgICAUQONA" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Вёсельные лодки</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Гидроциклы" data-cid="11" data-marker="top-rubricator/sub-category-26042" href="/sankt-peterburg/vodnyy_transport/gidrotsikly-ASgBAgICAUQOPA" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Гидроциклы</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Катера и яхты" data-cid="11" data-marker="top-rubricator/sub-category-26043" href="/sankt-peterburg/vodnyy_transport/katera_i_yahty-ASgBAgICAUQOPg" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Катера и яхты</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Моторные лодки и моторы" data-cid="11" data-marker="top-rubricator/sub-category-26045" href="/sankt-peterburg/vodnyy_transport/motornye_lodki-ASgBAgICAUQOOA" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Моторные лодки и моторы</a></p></div></div><div class="styles-module-child-QsNNX"><h5 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN"><a data-name="Запчасти и аксессуары" data-cid="10" data-marker="top-rubricator/sub-category-25999" href="/sankt-peterburg/zapchasti_i_aksessuary" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Запчасти и аксессуары&nbsp;›</a></h5><div class="styles-module-child__item-KsnHW" data-marker="top-rubricator/category-wrapper-25999"><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Запчасти" data-cid="10" data-marker="top-rubricator/sub-category-26000" href="/sankt-peterburg/zapchasti_i_aksessuary/zapchasti-ASgBAgICAUQKJA" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Запчасти</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Шины, диски и колёса" data-cid="10" data-marker="top-rubricator/sub-category-26006" href="/sankt-peterburg/zapchasti_i_aksessuary/shiny_diski_i_kolesa-ASgBAgICAUQKJg" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Шины, диски и колёса</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Аудио- и видеотехника" data-cid="10" data-marker="top-rubricator/sub-category-26014" href="/sankt-peterburg/zapchasti_i_aksessuary/audio-_i_videotehnika-ASgBAgICAUQKKA" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Аудио- и видеотехника</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Аксессуары" data-cid="10" data-marker="top-rubricator/sub-category-26012" href="/sankt-peterburg/zapchasti_i_aksessuary/zapchasti_i_aksessuary/aksessuary-ASgBAgICAUQKnk0" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Аксессуары</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-name="Багажники и фаркопы" data-cid="10" data-marker="top-rubricator/sub-category-26015" href="/sankt-peterburg/zapchasti_i_aksessuary/bagazhniki_i_farkopy-ASgBAgICAUQKyE0" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Багажники и фаркопы</a></p><p class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i"><a data-marker="top-rubricator/more-button" class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Ещё 6</a></p></div><div class="services-inside-nfkTH"><div class="styles-module-root-eJ6X_ styles-module-root_preset_blue-s7ZbD"><div class="styles-module-background-kCCBo styles-module-background_color-U4kTS"></div><div class="styles-module-content-brgfS"><div class="services-servicesWrapper-s3d9X"><strong class="styles-module-root-Yaf_d styles-module-size_m-w6vzl">Сервисы</strong><div class="styles-module-root-pFVzb styles-module-margin-top_0-gaF9v styles-module-margin-bottom_none-kefyU styles-module-root_direction_vertical-pTyl3 styles-module-root_fullWidth-dP0tv" style="--module-spacer-row-gap: var(--theme-gap-4);"><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C" style="--module-spacer-slot-width: auto;"><a data-marker="services-block/item-45259" target="_blank" class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4" href="/catalog/auto-ASgBAgICAUTQvA7~m9EB">Каталог авто</a></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C" style="--module-spacer-slot-width: auto;"><a data-marker="services-block/item-45260" target="_blank" class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4" href="/evaluation/cars">Оценка авто</a></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C" style="--module-spacer-slot-width: auto;"><a data-marker="services-block/item-114286" target="_blank" class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4" href="/auto-journal">Журнал</a></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C" style="--module-spacer-slot-width: auto;"><a data-marker="services-block/item-45261" target="_blank" class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4" href="/autoteka">Проверка истории в Автотеке</a></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C" style="--module-spacer-slot-width: auto;"><a data-marker="services-block/item-45262" target="_blank" class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4" href="/dogovor-kupli-prodazhi-automobilya">Договор купли-продажи авто</a></div><div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C" style="--module-spacer-slot-width: auto;"><a data-marker="services-block/item-45263" target="_blank" class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4" href="/auction/auto">Авито Аукцион</a></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+
+
+
+    <!-- Навигационное меню -->
+    <!-- <nav class="main-nav">
         <div class="container">
-            <div style="display: flex; gap: 12px;">
-                <img src="./img/Mask groupICO.png" >
-                <a href="home" class="logo" style="
-    font-size: 2rem;
-    font-weight: bold;
-    text-decoration: none;
-">
-    <span style="
-        background: linear-gradient(45deg, #3B79BF, #2A8BF2);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        color: transparent;
-    ">SUP</span>
-    <span style="color: #396fd4;">&</span>
-    <span style="
-        background: linear-gradient(45deg, #BA5D39, #FF8C42);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        color: transparent;
-    ">Kayak</span>
-</a>
-            </div>
-
-            
-            <div class="nav-links">
-                <!--
-                <div class="dropdown">
-                    <button class="dropbtn"> Аренда</button>
-                    <div class="dropdown-content">
-                        <a href="home">Сапов</a>
-                        <a href="home">Каяков</a>
-                        <a href="home">другого оборудования</a>
-                    </div>
-                </div>
-                -->
-                <a href="ВыборАренды.html">Аренда</a>
-                <a href="ВыборТуров.html">Туры/прогулки</a>
-                <a href="Галерея.html">Галерея</a>
-                <a href="оНас.html">О нас</a>
-                <a href="Контакты.html">Контакты</a>
-                <a href="Отзовы.html">Отзывы</a>
-
-            </div>
-            
-            <a href="#contact"><button class="btn">Оставить заявку</button></a>
-        
+            <ul class="nav-links">
+                <li><a href="ВыборАренды.html">Аренда</a></li>
+                <li><a href="ВыборТуров.html">Туры/прогулки</a></li>
+                <li><a href="Галерея.html">Галерея</a></li>
+                <li><a href="оНас.html">О нас</a></li>
+                <li><a href="Контакты.html">Контакты</a></li>
+                <li><a href="Отзовы.html">Отзывы</a></li>
+            </ul>
         </div>
-    </nav>
-    <!-- Шапка -->
-    
+    </nav> -->
+
+    <!-- Шапка с заголовком -->
+    <header>
         <div class="container">
-            <h1 style="padding-top: 200px;">ОТКРОЙТЕ МИР ВОДНЫХ ПРИКЛЮЧЕНИЙ</h1>
+            <h1>ОТКРОЙТЕ МИР ВОДНЫХ ПРИКЛЮЧЕНИЙ</h1>
             <p>Аренда оборудования и увлекательные туры на Сапах и Каяках</p>
-            <!-- Ссылка на форму забронировать-->
-            <a href="ВыборТуров.html"   class="btn" style="background: linear-gradient(45deg, #7472e6, #FF8C42); margin-left: 15px;">Выбрать тур</a> 
-            <a href="ВыборАренды.html"   class="btn" style="background: linear-gradient(45deg, #7472e6, #FF8C42);">Арендовать</a> 
+            <a href="ВыборТуров.html" class="btn" style="background: linear-gradient(45deg, #7472e6, #FF8C42);">Выбрать
+                тур</a>
+            <a href="ВыборАренды.html" class="btn"
+                style="background: linear-gradient(45deg, #7472e6, #FF8C42);">Арендовать</a>
         </div>
     </header>
 
     <!-- Остальной контент без изменений -->
-    <!-- Секция аренды снаряжения -->
     <section class="equipment" style="opacity: 0.89;">
         <div class="container">
             <h2 class="section-title">Аренда снаряжения и туры с гидом</h2>
             <p>
-                <strong><em>SUP&Kayak</em></strong> — это незабываемые водные приключения по доступным ценам. Хотите спокойной прогулки по водной глади <br>
-                        или активного исследования береговой линии — у нас есть всё для вашего идеального дня на воде!!!
+                <strong><em>SUP&Kayak</em></strong> — это незабываемые водные приключения по доступным ценам. Хотите
+                спокойной прогулки по водной глади <br>
+                или активного исследования береговой линии — у нас есть всё для вашего идеального дня на воде!!!
             </p>
-            
         </div>
     </section>
 
-    <!-- Секция выбора приключения -->
-    <section id="adventures" style="background-color: rgba(255, 255, 255, 0.89);  ">
+    <section id="adventures" style="background-color: rgba(255, 255, 255, 0.89);">
         <div class="container">
             <h2 class="section-title">Какое приключение выбрать?</h2>
             <div class="adventures">
-                
                 <div class="adventure-card">
                     <div class="adventure-image">
                         <img src="./img/Mask group3.png" alt="Аренда оборудования">
                     </div>
                     <div class="adventure-content">
-                        <a href="ВыборАренды.html" style="text-decoration: none;"><h3><span style="text-align: center;  border-bottom: 3px solid #FF7C4A;">Аренда оборудования</span></h3></a>
-                        <p>Идеально для тех, кто хочет свободы и самостоятельности. Берите снаряжение и отправляйтесь в собственное приключение!</p>
+                        <a href="ВыборАренды.html" style="text-decoration: none;">
+                            <h3><span style="text-align: center; border-bottom: 3px solid #FF7C4A;">Аренда
+                                    оборудования</span></h3>
+                        </a>
+                        <p>Идеально для тех, кто хочет свободы и самостоятельности. Берите снаряжение и отправляйтесь в
+                            собственное приключение!</p>
                     </div>
                 </div>
                 <div class="adventure-card">
@@ -595,47 +749,50 @@
                         <img src="./img/Mask group.png" alt="Туры с гидом">
                     </div>
                     <div class="adventure-content">
-                        <a href="ВыборТуров.html" style="text-decoration: none;"><h3 style="text-align: center; border-bottom: 3px solid #FF7C4A;">Туры/прогулки с гидом</h3></a>
-                        <p>Для тех, кто хочет исследовать береговую линию и скрытые бухты. Каякинг, сапы — это возможность добраться до мест, недоступных с суши, и увидеть природу с совершенно нового. Идеально подходит для пар, компаний и семейного отдыха.</p>
+                        <a href="ВыборТуров.html" style="text-decoration: none;">
+                            <h3 style="text-align: center; border-bottom: 3px solid #FF7C4A;">Туры/прогулки с гидом</h3>
+                        </a>
+                        <p>Для тех, кто хочет исследовать береговую линию и скрытые бухты. Каякинг, сапы — это
+                            возможность добраться до мест, недоступных с суши, и увидеть природу с совершенно нового.
+                            Идеально подходит для пар, компаний и семейного отдыха.</p>
                     </div>
                 </div>
-                
-                
             </div>
         </div>
     </section>
 
-    <!-- Секция "Почему мы" -->
     <section class="why-us" style="background-color: rgba(255, 255, 255, 0.89);">
         <div class="container">
             <h2 class="section-title">Почему выбирают нас</h2>
             <div class="features">
                 <div class="feature">
                     <div class="feature-icon">⚡</div>
-                    <h3>Экипировка и доски</h3>
-                    <p>Предоставляем всё необходимое для катания: гидрокостюмы, жилеты, доски и пончо на случай, если вы замёрзнете.</p>
+                    <h3>Экипировка и доски</h3>
+                    <p>Предоставляем всё необходимое для катания: гидрокостюмы, жилеты, доски и пончо на случай, если вы
+                        замёрзнете.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">🌊</div>
                     <h3>Низкие цены</h3>
-                    <p>У нас самые низкие цены! Скидки при прохождение квестов и зданий в лк.</p>
+                    <p>У нас самые низкие цены! Скидки при прохождение квестов и зданий в лк.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">⏱️</div>
-                    <h3>Гбкий гирафик</h3>
-                    <p>Мы работаем по удобному для вас графику и предлагаем различные варианты аренды - от нескольких часов до нескольких дней.</p>
+                    <h3>Гибкий график</h3>
+                    <p>Мы работаем по удобному для вас графику и предлагаем различные варианты аренды - от нескольких
+                        часов до нескольких дней.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">💬</div>
                     <h3>Индивидуальный подход</h3>
-                    <p>Мы учитываем пожелания каждого клиента и готовы предложить решение, которое идеально подойдет именно вам.</p>
+                    <p>Мы учитываем пожелания каждого клиента и готовы предложить решение, которое идеально подойдет
+                        именно вам.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Секция FAQ -->
-    <section style="background-color: #ffffff; opacity: 0.89;  background: linear-gradient(#f0efee, #afaca1);">
+    <section style="background-color: #ffffff; opacity: 0.89; background: linear-gradient(#f0efee, #afaca1);">
         <div class="container">
             <h2 class="section-title">Часто задаваемые вопросы</h2>
             <div class="faq">
@@ -645,7 +802,8 @@
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Для аренды большинства видов оборудования опыт не требуется. Наши инструкторы проведут краткий инструктаж и помогут освоиться с оборудованием.</p>
+                        <p>Для аренды большинства видов оборудования опыт не требуется. Наши инструкторы проведут
+                            краткий инструктаж и помогут освоиться с оборудованием.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -654,7 +812,8 @@
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>В стоимость тура включено все необходимое снаряжение, услуги гида, страховка и, в большинстве случаев, питание (уточняйте при бронировании).</p>
+                        <p>В стоимость тура включено все необходимое снаряжение, услуги гида, страховка и, в большинстве
+                            случаев, питание (уточняйте при бронировании).</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -663,7 +822,8 @@
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Да, бронирование можно отменить бесплатно за 48 часов до начала. При отмене позже этого срока может взиматься частичная оплата.</p>
+                        <p>Да, бронирование можно отменить бесплатно за 48 часов до начала. При отмене позже этого срока
+                            может взиматься частичная оплата.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -672,16 +832,16 @@
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>При неблагоприятных погодных условиях мы предлагаем перенести бронирование на другую дату или вернуть полную стоимость.</p>
+                        <p>При неблагоприятных погодных условиях мы предлагаем перенести бронирование на другую дату или
+                            вернуть полную стоимость.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Секция контактов -->
-    <section id="contact" style="background: url('https://i.pinimg.com/736x/04/e6/dd/04e6dd5116be00096969afde94908986.jpg'); background-size: cover;
-            background-position: center;" >
+    <section id="contact"
+        style="background: url('https://i.pinimg.com/736x/04/e6/dd/04e6dd5116be00096969afde94908986.jpg'); background-size: cover; background-position: center;">
         <div class="container">
             <h2 class="section-title">Хочу попробовать!</h2>
             <div class="contact-form">
@@ -700,18 +860,21 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Сообщение</label>
-                        <textarea id="message" class="form-control" rows="5" placeholder="Расскажите о ваших пожеланиях..."></textarea>
+                        <textarea id="message" class="form-control" rows="5"
+                            placeholder="Расскажите о ваших пожеланиях..."></textarea>
                     </div>
                     <button type="submit" class="btn">Отправить заявку</button>
                 </form>
             </div>
         </div>
     </section>
-    
-    <!-- Контактная информация -->
+
     <section class="contacts">
         <div class="container">
-            <h2   style="color: white; text-align: center; border-bottom: 3px solid #FF7C4A; padding-bottom: 10px; margin-bottom: 50px;">Наши контакты</h2>
+            <h2
+                style="color: white; text-align: center; border-bottom: 3px solid #FF7C4A; padding-bottom: 10px; margin-bottom: 50px;">
+                Наши контакты
+            </h2>
             <div class="contact-info">
                 <div class="contact-item">
                     <h3>Контакты</h3>
@@ -728,13 +891,11 @@
                     <h3>Социальные сети</h3>
                     <p>Telegram: https://t.me/KasperHello</p>
                     <p>VK: https://vk.com/kaspermerryfellow</p>
-                    
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Футер -->
     <footer>
         <div class="container">
             <p>&copy; 2025 SUP&Kayak Водные Приключения. Все права защищены.</p>
@@ -743,24 +904,74 @@
     </footer>
 
     <script>
-        // Функциональность для FAQ
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
                 item.classList.toggle('active');
-                
-                // Меняем значок +/-
                 const icon = question.querySelector('span:last-child');
                 icon.textContent = item.classList.contains('active') ? '-' : '+';
             });
         });
-        
-        // Обработка формы
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.');
             this.reset();
         });
     </script>
+
+
+<script>
+  // Ждем, пока весь HTML загрузится
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // 1. Находим нашу кнопку по ID
+    const button = document.getElementById('my-category-button');
+
+    // 2. Находим блок с каталогом по атрибуту data-marker
+    const popup = document.querySelector('[data-marker="more-popup"]');
+
+    // Проверяем, что и кнопка, и попап существуют на странице
+    if (!button || !popup) {
+      console.error('Кнопка или попап не найдены!');
+      return;
+    }
+
+    // 3. Скрываем попап изначально (если он не скрыт по умолчанию)
+    popup.style.display = 'none';
+
+    // 4. Добавляем обработчик события клика на кнопку
+    button.addEventListener('click', function(event) {
+      // Останавливаем всплытие события, чтобы клик случайно не закрыл попап
+      event.stopPropagation();
+
+      // Проверяем текущее состояние попапа
+      if (popup.style.display === 'none') {
+        // Если скрыт - показываем
+        popup.style.display = 'block'; // или 'flex', если блок использует flex
+        console.log('Попап открыт');
+      } else {
+        // Если виден - скрываем
+        popup.style.display = 'none';
+        console.log('Попап закрыт');
+      }
+    });
+
+    // (Опционально) Закрытие попапа при клике вне его области
+    document.addEventListener('click', function(event) {
+      // Если кликнули не по кнопке и не по самому попапу
+      if (!button.contains(event.target) && !popup.contains(event.target)) {
+        popup.style.display = 'none';
+      }
+    });
+
+    // (Опционально) Предотвращаем закрытие при клике внутри самого попапа
+    popup.addEventListener('click', function(event) {
+      event.stopPropagation();
+    });
+
+  });
+</script>
 </body>
+
 </html>
