@@ -657,27 +657,27 @@
 </head>
 
 <body>
-    <div class="navbar-mobile hide-desktop j-navbar-mobile"
-        data-link="{on 'click' '.navbar-mobile__link' sendAnalytics}" data-jsv="#15^/15^"><a class="navbar-mobile__link"
+    <div class="navbar-mobile hide-desktop j-navbar-mobile">
+        <a class="navbar-mobile__link"
             data-wba-header-name="Main_tabbar" data-link-type="home"
-            data-link="href{:(menuModel.isB2B &amp;&amp; menuModel.b2bMainPageEnabled) ? '/business' : '/'}"
-            aria-label="Главная страница" href="/"> <span
+            
+            aria-label="Главная страница" href="#"> <span
                 class="navbar-mobile__icon navbar-mobile__icon--home navbar-mobile__icon--active"
                 data-link="class{merge:menuModel.type == 'home' toggle='navbar-mobile__icon--active'}"></span> </a>
         <div class="navbar-mobile__wrap"> <button id="catalogNavbarLink" class="navbar-mobile__link"
                 data-wba-header-name="Catalog_tabbar" data-link-type="catalog" aria-label="Каталог" type="button"> <span
                     class="navbar-mobile__icon navbar-mobile__icon--catalog"
                     data-link="class{merge:menuModel.catalogState toggle='navbar-mobile__icon--active'}"></span>
-            </button> </div> <a class="navbar-mobile__link" data-wba-header-name="Cart_tabbar" href="/lk/basket"
+            </button> </div> <a class="navbar-mobile__link" data-wba-header-name="Cart_tabbar" href="#"
             aria-label="Корзина"> <span class="navbar-mobile__icon navbar-mobile__icon--basket"
                 data-link="class{merge:menuModel.type == 'basket' toggle='navbar-mobile__icon--active'}"> <span
                     class="navbar-mobile__notify hide"
                     data-link="{:menuModel.basketCount}class{merge:!menuModel.basketCount toggle='hide'}"></span>
-            </span> </a> <a class="navbar-mobile__link" data-wba-header-name="Favorites_tabbar" href="/lk/favorites"
+            </span> </a> <a class="navbar-mobile__link" data-wba-header-name="Favorites_tabbar" href="#"
             aria-label="Избранные товары" data-link="{on 'click' showPopupLoginMobile}" data-jsv="#7^/7^"> <span
                 class="navbar-mobile__icon navbar-mobile__icon--favorites"
                 data-link="class{merge:menuModel.type == 'poned' toggle='navbar-mobile__icon--active'}"></span> </a> <a
-            class="navbar-mobile__link" data-wba-header-name="LK_tabbar" href="/lk" aria-label="Личный кабинет"
+            class="navbar-mobile__link" data-wba-header-name="LK_tabbar" href="#" aria-label="Личный кабинет"
             data-link="{on 'click' showPopupLoginMobile}" data-jsv="#9^/9^"> <span
                 class="navbar-mobile__icon navbar-mobile__icon--profile" 
                 data-link="class{merge: menuModel.isB2B toggle='navbar-mobile__icon--b2b'}class{merge:(menuModel.type == 'profile' || menuModel.type == 'archive') toggle='navbar-mobile__icon--active'}class{merge: menuModel.isPremium toggle='navbar-mobile__icon--premium'}">
@@ -727,7 +727,7 @@
                     </svg>
                     <span>Избранное</span>
                 </a>
-                <a href="#" class="icon-item">
+                <a  class="icon-item">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
@@ -1210,7 +1210,7 @@
                                     class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xxxl-PGInq styles-module-size_xxxl_dense-jq85Y styles-module-size_xxxl-wk1P_ styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-3xl-gx4XI">
                                     <a data-name="Транспорт" data-cid="1"
                                         data-marker="top-rubricator/sub-category-25984"
-                                        href="/sankt-peterburg/transport"
+                                        
                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Транспорт&nbsp;›</a>
                                 </h2>
                                 <div class="">
@@ -1222,7 +1222,7 @@
                                                 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN">
                                                 <a data-name="Автомобили" data-cid="9"
                                                     data-marker="top-rubricator/sub-category-25985"
-                                                    href="/sankt-peterburg/avtomobili"
+                                                    
                                                     class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Автомобили&nbsp;›</a>
                                             </h5>
                                         </div>
@@ -1232,7 +1232,7 @@
                                                 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN">
                                                 <a data-name="Мотоциклы и мототехника" data-cid="14"
                                                     data-marker="top-rubricator/sub-category-25986"
-                                                    href="/sankt-peterburg/mototsikly_i_mototehnika"
+                                                    
                                                     class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Мотоциклы
                                                     и мототехника&nbsp;›</a></h5>
                                             <div class="styles-module-child__item-KsnHW"
@@ -1241,42 +1241,42 @@
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Вездеходы" data-cid="14"
                                                         data-marker="top-rubricator/sub-category-25988"
-                                                        href="/sankt-peterburg/mototsikly_i_mototehnika/vezdehody-ASgBAgICAUQ84AE"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Вездеходы</a>
                                                 </p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Картинг" data-cid="14"
                                                         data-marker="top-rubricator/sub-category-25989"
-                                                        href="/sankt-peterburg/mototsikly_i_mototehnika/karting-ASgBAgICAUQ8zk0"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Картинг</a>
                                                 </p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Квадроциклы и багги" data-cid="14"
                                                         data-marker="top-rubricator/sub-category-25990"
-                                                        href="/sankt-peterburg/mototsikly_i_mototehnika/kvadrotsikly-ASgBAgICAUQ83AE"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Квадроциклы
                                                         и багги</a></p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Мопеды и скутеры" data-cid="14"
                                                         data-marker="top-rubricator/sub-category-25991"
-                                                        href="/sankt-peterburg/mototsikly_i_mototehnika/mopedy_i_skutery-ASgBAgICAUQ82gE"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Мопеды
                                                         и скутеры</a></p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Мотоциклы" data-cid="14"
                                                         data-marker="top-rubricator/sub-category-25992"
-                                                        href="/sankt-peterburg/mototsikly_i_mototehnika/mototsikly-ASgBAgICAUQ80k0"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Мотоциклы</a>
                                                 </p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Снегоходы" data-cid="14"
                                                         data-marker="top-rubricator/sub-category-25998"
-                                                        href="/sankt-peterburg/mototsikly_i_mototehnika/snegohody-ASgBAgICAUQ8oiw"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Снегоходы</a>
                                                 </p>
                                             </div>
@@ -1286,7 +1286,7 @@
                                                 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN">
                                                 <a data-name="Грузовики и спецтехника" data-cid="81"
                                                     data-marker="top-rubricator/sub-category-26025"
-                                                    href="/sankt-peterburg/gruzoviki_i_spetstehnika"
+                                                    
                                                     class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Грузовики
                                                     и спецтехника&nbsp;›</a></h5>
                                             <div class="styles-module-child__item-KsnHW"
@@ -1295,35 +1295,35 @@
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Грузовики" data-cid="81"
                                                         data-marker="top-rubricator/sub-category-26030"
-                                                        href="/sankt-peterburg/gruzoviki_i_spetstehnika/gruzoviki-ASgBAgICAURUkAI"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Грузовики</a>
                                                 </p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Сельхозтехника" data-cid="81"
                                                         data-marker="top-rubricator/sub-category-26035"
-                                                        href="/sankt-peterburg/gruzoviki_i_spetstehnika/selhoztehnika-ASgBAgICAURUtCw"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Сельхозтехника</a>
                                                 </p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Седельные тягачи" data-cid="81"
                                                         data-marker="top-rubricator/sub-category-26038"
-                                                        href="/sankt-peterburg/gruzoviki_i_spetstehnika/tyagachi-ASgBAgICAURU5E0"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Седельные
                                                         тягачи</a></p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Прицепы" data-cid="81"
                                                         data-marker="top-rubricator/sub-category-26034"
-                                                        href="/sankt-peterburg/gruzoviki_i_spetstehnika/pritsepy-ASgBAgICAURU4k0"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Прицепы</a>
                                                 </p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Экскаваторы" data-cid="81"
                                                         data-marker="top-rubricator/sub-category-26039"
-                                                        href="/sankt-peterburg/gruzoviki_i_spetstehnika/ekskavatory-ASgBAgICAURU5k0"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Экскаваторы</a>
                                                 </p>
                                                 <p
@@ -1339,7 +1339,7 @@
                                                 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN">
                                                 <a data-name="Аренда спецтехники" data-cid="114"
                                                     data-marker="top-rubricator/sub-category-77268"
-                                                    href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki-ASgBAgICAkSYC8SfAZoL3J8B"
+                                                    
                                                     class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Аренда
                                                     спецтехники&nbsp;›</a></h5>
                                             <div class="styles-module-child__item-KsnHW"
@@ -1348,35 +1348,35 @@
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Подъёмная техника" data-cid="114"
                                                         data-marker="top-rubricator/sub-category-77269"
-                                                        href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki/podyomnaya_tekhnika-ASgBAgICA0SYC8SfAZoL3J8B7o4O8qSNAw"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Подъёмная
                                                         техника</a></p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Землеройная техника" data-cid="114"
                                                         data-marker="top-rubricator/sub-category-77270"
-                                                        href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki/zemleroynaya_tekhnika-ASgBAgICA0SYC8SfAZoL3J8B7o4O9KSNAw"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Землеройная
                                                         техника</a></p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Коммунальная техника" data-cid="114"
                                                         data-marker="top-rubricator/sub-category-77271"
-                                                        href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki/kommunalnaya_tekhnika-ASgBAgICA0SYC8SfAZoL3J8B7o4Owo_OAQ"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Коммунальная
                                                         техника</a></p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Дорожно-строительная техника" data-cid="114"
                                                         data-marker="top-rubricator/sub-category-77272"
-                                                        href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki/dorozhno_stroitelnaya_tekhnika-ASgBAgICA0SYC8SfAZoL3J8B7o4OwpaNAw"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Дорожно-строительная
                                                         техника</a></p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Грузовой транспорт" data-cid="114"
                                                         data-marker="top-rubricator/sub-category-77273"
-                                                        href="/sankt-peterburg/predlozheniya_uslug/transport_perevozki/arenda_spetstekhniki/gruzovoy_transport-ASgBAgICA0SYC8SfAZoL3J8B7o4OwI_OAQ"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Грузовой
                                                         транспорт</a></p>
                                                 <p
@@ -1392,7 +1392,7 @@
                                                 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN">
                                                 <a data-name="Водный транспорт" data-cid="11"
                                                     data-marker="top-rubricator/sub-category-26040"
-                                                    href="/sankt-peterburg/vodnyy_transport"
+                                                    
                                                     class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Водный
                                                     транспорт&nbsp;›</a></h5>
                                             <div class="styles-module-child__item-KsnHW"
@@ -1401,28 +1401,28 @@
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Вёсельные лодки" data-cid="11"
                                                         data-marker="top-rubricator/sub-category-26041"
-                                                        href="/sankt-peterburg/vodnyy_transport/veselnye_lodki-ASgBAgICAUQONA"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Вёсельные
                                                         лодки</a></p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Гидроциклы" data-cid="11"
                                                         data-marker="top-rubricator/sub-category-26042"
-                                                        href="/sankt-peterburg/vodnyy_transport/gidrotsikly-ASgBAgICAUQOPA"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Гидроциклы</a>
                                                 </p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Катера и яхты" data-cid="11"
                                                         data-marker="top-rubricator/sub-category-26043"
-                                                        href="/sankt-peterburg/vodnyy_transport/katera_i_yahty-ASgBAgICAUQOPg"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Катера
                                                         и яхты</a></p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Моторные лодки и моторы" data-cid="11"
                                                         data-marker="top-rubricator/sub-category-26045"
-                                                        href="/sankt-peterburg/vodnyy_transport/motornye_lodki-ASgBAgICAUQOOA"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Моторные
                                                         лодки и моторы</a></p>
                                             </div>
@@ -1432,7 +1432,7 @@
                                                 class="styles-module-root-KWbDd styles-module-root-PY1ie styles-module-size_xm-V3Vbt styles-module-size_xm_dense-xMk_M styles-module-size_xm-JvyF4 styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-header-xm-v4kEn styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_12-cpoUN">
                                                 <a data-name="Запчасти и аксессуары" data-cid="10"
                                                     data-marker="top-rubricator/sub-category-25999"
-                                                    href="/sankt-peterburg/zapchasti_i_aksessuary"
+                                                    
                                                     class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Запчасти
                                                     и аксессуары&nbsp;›</a></h5>
                                             <div class="styles-module-child__item-KsnHW"
@@ -1441,35 +1441,35 @@
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Запчасти" data-cid="10"
                                                         data-marker="top-rubricator/sub-category-26000"
-                                                        href="/sankt-peterburg/zapchasti_i_aksessuary/zapchasti-ASgBAgICAUQKJA"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Запчасти</a>
                                                 </p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Шины, диски и колёса" data-cid="10"
                                                         data-marker="top-rubricator/sub-category-26006"
-                                                        href="/sankt-peterburg/zapchasti_i_aksessuary/shiny_diski_i_kolesa-ASgBAgICAUQKJg"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Шины,
                                                         диски и колёса</a></p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Аудио- и видеотехника" data-cid="10"
                                                         data-marker="top-rubricator/sub-category-26014"
-                                                        href="/sankt-peterburg/zapchasti_i_aksessuary/audio-_i_videotehnika-ASgBAgICAUQKKA"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Аудио-
                                                         и видеотехника</a></p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Аксессуары" data-cid="10"
                                                         data-marker="top-rubricator/sub-category-26012"
-                                                        href="/sankt-peterburg/zapchasti_i_aksessuary/zapchasti_i_aksessuary/aksessuary-ASgBAgICAUQKnk0"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Аксессуары</a>
                                                 </p>
                                                 <p
                                                     class="styles-module-root-PY1ie styles-module-size_s-GJxjZ styles-module-size_s_dense-KN2W1 styles-module-size_s-ijDWD styles-module-size_dense-u0sRJ stylesMarningNormal-module-root-OE0X2 stylesMarningNormal-module-paragraph-s-dense-IXiIb styles-module-root_top-XeS0S styles-module-margin-top_4-jL7nA styles-module-root_bottom-hgeJ2 styles-module-margin-bottom_4-OpB5i">
                                                     <a data-name="Багажники и фаркопы" data-cid="10"
                                                         data-marker="top-rubricator/sub-category-26015"
-                                                        href="/sankt-peterburg/zapchasti_i_aksessuary/bagazhniki_i_farkopy-ASgBAgICAUQKyE0"
+                                                        
                                                         class="styles-module-root-cfrVG styles-module-root_underlineOffset_size-m-ce9r8 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4">Багажники
                                                         и фаркопы</a></p>
                                                 <p
@@ -1492,42 +1492,42 @@
                                                                 <div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C"
                                                                     style="--module-spacer-slot-width: auto;"><a
                                                                         data-marker="services-block/item-45259"
-                                                                        target="_blank"
+                                                                        
                                                                         class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4"
-                                                                        href="/catalog/auto-ASgBAgICAUTQvA7~m9EB">Каталог
+                                                                        >Каталог
                                                                         авто</a></div>
                                                                 <div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C"
                                                                     style="--module-spacer-slot-width: auto;"><a
                                                                         data-marker="services-block/item-45260"
-                                                                        target="_blank"
+                                                                        
                                                                         class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4"
-                                                                        href="/evaluation/cars">Оценка авто</a></div>
+                                                                        >Оценка авто</a></div>
                                                                 <div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C"
                                                                     style="--module-spacer-slot-width: auto;"><a
                                                                         data-marker="services-block/item-114286"
-                                                                        target="_blank"
+                                                                        
                                                                         class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4"
-                                                                        href="/auto-journal">Журнал</a></div>
+                                                                        >Журнал</a></div>
                                                                 <div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C"
                                                                     style="--module-spacer-slot-width: auto;"><a
                                                                         data-marker="services-block/item-45261"
-                                                                        target="_blank"
+                                                                        
                                                                         class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4"
-                                                                        href="/autoteka">Проверка истории в Автотеке</a>
+                                                                        >Проверка истории в Автотеке</a>
                                                                 </div>
                                                                 <div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C"
                                                                     style="--module-spacer-slot-width: auto;"><a
                                                                         data-marker="services-block/item-45262"
-                                                                        target="_blank"
+                                                                        
                                                                         class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4"
-                                                                        href="/dogovor-kupli-prodazhi-automobilya">Договор
+                                                                        >Договор
                                                                         купли-продажи авто</a></div>
                                                                 <div class="styles-module-root-Sd1q7 styles-module-margin-top_none-A8Qun styles-module-margin-bottom_none-kefyU styles-module-direction_vertical-K9F3C"
                                                                     style="--module-spacer-slot-width: auto;"><a
                                                                         data-marker="services-block/item-45263"
-                                                                        target="_blank"
+                                                                        
                                                                         class="styles-module-root-cfrVG styles-module-size_s-GJxjZ styles-module-root_underlineOffset_size-s-woat6 styles-module-root_noVisited-U4swI styles-module-root_preset_black-VfJP4"
-                                                                        href="/auction/auto">Авито Аукцион</a></div>
+                                                                        >Авито Аукцион</a></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1545,19 +1545,7 @@
 
 
 
-        <!-- Навигационное меню -->
-        <!-- <nav class="main-nav">
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="ВыборАренды.html">Аренда</a></li>
-                <li><a href="ВыборТуров.html">Туры/прогулки</a></li>
-                <li><a href="Галерея.html">Галерея</a></li>
-                <li><a href="оНас.html">О нас</a></li>
-                <li><a href="Контакты.html">Контакты</a></li>
-                <li><a href="Отзовы.html">Отзывы</a></li>
-            </ul>
-        </div>
-    </nav> -->
+        
 
         <!-- Шапка с заголовком -->
         <header>
