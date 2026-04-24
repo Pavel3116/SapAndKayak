@@ -7,6 +7,7 @@
     <title>Sup&Kaik</title>
     <link rel="icon" type="image/x-icon" href="./img/logo/Logo.png">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -96,6 +97,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         .avito-style-header .men {
+            display: flex;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -707,7 +709,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         gap: 10px;
     }
 
@@ -800,6 +802,268 @@
         display: block;
     }
  }
+
+ #burgerToggle{
+    display: none;
+ }
+.menumob{
+    display: none;
+    
+}
+#burgerToggle:checked ~ .menumob{
+    display: block;
+}
+/* Боковая панель */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 20px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    z-index: 10000;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+/* Затемнение фона */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Кнопка закрытия */
+.sidebar-close {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.sidebar-close:hover {
+    background: #c0392b;
+}
+
+/* Содержимое панели */
+.sidebar-content {
+    margin-top: 50px;
+}
+
+.sidebar-content h3 {
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FF7C4A;
+}
+
+.sidebar-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-content ul li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-content ul li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.sidebar-content ul li:hover {
+    color: #FF7C4A;
+    padding-left: 5px;
+}
+
+/* Кнопка открытия панели (если нужно добавить отдельную) */
+.sidebar-open-btn {
+    background: linear-gradient(45deg, #7472e6, #FF8C42);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.sidebar-open-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+/* === СТИЛИ ДЛЯ БУРГЕРА (ДОБАВИТЬ В КОНЕЦ CSS) === */
+.burger-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Стили для мобильного меню */
+.menumob {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #464545;
+    min-width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    z-index: 10000;
+}
+
+.menumob li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menumob li:last-child {
+    border-bottom: none;
+}
+
+.menumob li a {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.menumob li:hover {
+    background-color: #FF7C4A;
+    padding-left: 25px;
+}
+
+
+/* .menumob li a strong {
+    color: #FF7C4A;
+} */
+
+/* Открытие меню при активации чекбокса */
+#burgerToggle:checked ~ .menumob {
+    display: block;
+}
+
+/* Убеждаемся, что чекбокс скрыт */
+#burgerToggle {
+    display: none;
+}
+
+/* Кнопка бургера */
+.burg {
+    display: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Адаптивность */
+@media (max-width: 1150px) {
+    .iten {
+        display: none;
+    }
+    .burg {
+        display: block;
+    }
+    .men {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+}
+
+/* Для маленьких экранов меню на всю ширину */
+@media (max-width: 600px) {
+    .menumob {
+        position: fixed;
+        top: 130px;
+        left: 0;
+        right: auto;
+        width: 80%;
+        max-width: 280px;
+        border-radius: 0 12px 12px 0;
+    }
+}
+
+/* Для верхней панели на мобилках */
+@media (max-width: 768px) {
+    .top-info .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    .top-info .container div {
+        /* display: flex; */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+@media(max-width: 500px){
+    .avito-logo{
+        max-width: 80px;
+        margin-left: 70px;
+    }
+    .logo-text{
+        font-size: 25px;
+    }
+}
+.exit{
+    display: none;
+}
+.exitOne{
+    display: flex;
+}
+@media(max-width:858px){
+    .exit{
+        display: block;
+    }
+    .exitOne{
+        display: none;
+    }
+}
+@media(min-width:1150px){
+    
+    .burger-wrapper{
+        display: none;
+    }
+}
+@media (min-width: 859px) {
+    .exit {
+        display: none !important;
+    }
+    .exitOne {
+        display: block;
+    }
+}
     </style>
 </head>
 
@@ -839,67 +1103,78 @@
     <!-- Верхняя информационная панель -->
     <div class="top-info">
         <div class="container">
-            <div>
+            <div style="display: flex;">
+                <div>
                 <a href="tel:89692005825">8<span style="color:#FBBB0A"> (969)</span> 200 58 25 (звонок бесплатный)</a>
+            </div>
+            <div>
+                
                 <a href="#">Работаем с <span style="color:#FBBB0A">07:00</span> до <span style="color:#FBBB0A"> 19:00 </span> МСК</a>
             </div>
-            <a href="index.html" ><button  class="btn">Войти/Зарегистрироваться</button></a>
-        
+            </div>
+
+
+            <div class="exitOne" >
+                
+                <a href="index.html" ><button  class="btn">
+                    
+                    Войти/Зарегистрироваться</button></a>
+            
+            </div>
+             <!-- <div class="exitTwo">
+
+                <a href="index.html" ><button  class="btn">Оставить заявку</button></a>
+            
+            </div> -->
         </div>
     </div> 
 
 
     <!-- Шапка в стиле Авито -->
-    <div class="avito-style-header">
-        
-        <div class="men" style="display: flex; ">
-            <div class="avito-logo">
-                <img src="./img/logo/Logo.png" alt="Логотип" style="max-width: 100px;">
-                   <!-- Логотип -->
-                <a href="home" class="logo-text">
-                    <span>Drive</span>&<span>Sport</span>
-                </a>
-            </div>
+  <!-- Шапка в стиле Авито -->
+<div class="avito-style-header">
+    <div class="men">
+        <div class="avito-logo">
+            <img src="./img/logo/Logo.png" alt="Логотип" style="max-width: 100px;">
+            <a href="home" class="logo-text">
+                <span>Drive</span>&<span>Sport</span>
+            </a>
+        </div>
 
+        <!-- Десктопное меню -->
+        <div class="iten">
+            <button class="iten2"><a href="ВыборАренды.html"><strong style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a></button>
+            <button class="iten2"><a href="ВыборАренды.html">Аренда</a></button>
+            <button class="iten2"><a href="Karting.html">Картинг</a></button>
+            <button class="iten2"><a href="Галерея.html">Галерея</a></button>
+            <button class="iten2"><a href="оНас.html">О нас</a></button>
+            <button class="iten2"><a href="Контакты.html">Контакты</a></button>
+            <button class="iten2"><a href="Отзовы.html">Отзывы</a></button>
+        </div>
 
-
-            <div class="container avito-header-container">
-
-          
-
-
-            <div class="iten">
-                 <button class="iten2"><a href="ВыборАренды.html"><strong style="    border-bottom: 3px solid #FF7C4A;">Главная</strong></a></button>
-                <button class="iten2"><a href="ВыборАренды.html">Аренда</a></button>
-                <button  class="iten2"><a href="Karting.html">Картинг</a></button>
-                <button  class="iten2"><a href="Галерея.html">Галерея</a></button>
-                <button  class="iten2"><a href="оНас.html"> О нас</a></button>
-                <button  class="iten2"><a href="Контакты.html">Контакты</a></button>
-                <buttoт  class="iten2"><a href="Отзовы.html"> Отзывы</a></buttoт>
-            </div>
-            <div class="burg">
-                <img src="img/burger-bar.png" alt="" style="max-width: 40px;">
-            </div>
-
-            <!-- Кнопки входа и размещения -->
-            <!-- <div class="avito-actions">
-
-
-
-                <button class="login-btn" style="gap: 10px; align-items: center">
-
-
-<span
-                class="navbar-mobile__icon navbar-mobile__icon--profile"
-                data-link="class{merge: menuModel.isB2B toggle='navbar-mobile__icon--b2b'}class{merge:(menuModel.type == 'profile' || menuModel.type == 'archive') toggle='navbar-mobile__icon--active'}class{merge: menuModel.isPremium toggle='navbar-mobile__icon--premium'}">
-                <span class="navbar-mobile__notify hide"
-                    data-link="{:(menuModel.eventsModel &amp;&amp; menuModel.eventsModel^eventsCount)}class{merge:!(~root.$auth.isAuth &amp;&amp; menuModel.eventsModel &amp;&amp; menuModel.eventsModel^eventsCount) toggle='hide'}"></span>
-            </span>
-                    Вход и регистрация</button>
-                
-            </div> -->
+        <!-- БУРГЕР: ВСЁ В ОДНОМ КОНТЕЙНЕРЕ -->
+        <div class="burger-wrapper">
+            <input type="checkbox" id="burgerToggle">
+            <label for="burgerToggle" class="burg">
+                <img src="img/buterbrod.png" alt="Меню" style="max-width: 40px; cursor: pointer;">
+            </label>
+            
+            <!-- Мобильное меню - теперь оно соседствует с чекбоксом -->
+            <ul class="menumob">
+                <li><a href="ВыборАренды.html"><strong style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a></li>
+                <li><a href="ВыборАренды.html">Аренда</a></li>
+                <li><a href="Karting.html">Картинг</a></li>
+                <li><a href="Галерея.html">Галерея</a></li>
+                <li><a href="оНас.html">О нас</a></li>
+                <li><a href="Контакты.html">Контакты</a></li>
+                <li><a href="Отзовы.html">Отзывы</a></li>
+                <li class="exit" style="display: flex;">
+                    <img src="img/person.png" alt="" style="max-width: 40px;">
+                    <a href="">Войти\Зарегестрироваться</a></li>
+            </ul>
         </div>
     </div>
+</div>
 
     <div>
         <div class="styles-module-root-O4ZMa styles-module-root_size_m-J6U91 styles-module-root_preset_inverse-K7UiL"
@@ -908,7 +1183,7 @@
         </div>
 
 
-
+    </div>
         
 
         <!-- Шапка с заголовком -->

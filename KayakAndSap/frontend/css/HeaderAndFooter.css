@@ -1,0 +1,324 @@
+/* === СТИЛИ ДЛЯ TOP-INFO (Верхняя информационная панель) === */
+.top-info {
+    background-color: #464545;
+    color: #ffffff;
+    padding: 8px 0;
+    font-size: 13px;
+    font-family: 'Arial', sans-serif;
+}
+
+.top-info .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.top-info-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.top-info-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.top-info-links a:hover {
+    color: #dddddd;
+}
+
+.highlight-code {
+    color: #FF8C42;
+    font-weight: 600;
+}
+
+.top-info-divider {
+    color: #666666;
+}
+
+.top-info-btn {
+    background: transparent;
+    border: 1px solid #FF8C42;
+    color: #FF8C42;
+    padding: 4px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.top-info-btn:hover {
+    background-color: #FF8C42;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* === СТИЛИ ДЛЯ AVITO-STYLE-HEADER === */
+.avito-style-header {
+    background-color: #cac8c8;
+    opacity: 0.95;
+    padding: 12px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.avito-style-header .men {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.iten {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.iten2 {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+
+.iten2:hover {
+    color: #FF8C42;
+}
+
+.avito-logo {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.logo-text span:first-child {
+    background: linear-gradient(45deg, #3B79BF, #2A8BF2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-text span:last-child {
+    background: linear-gradient(45deg, #BA5D39, #FF8C42);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* === СТИЛИ ДЛЯ БУРГЕР-МЕНЮ === */
+.burger-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.menumob {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #464545;
+    min-width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    z-index: 10000;
+}
+
+.menumob li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menumob li:last-child {
+    border-bottom: none;
+}
+
+.menumob li a {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.menumob li:hover {
+    background-color: #FF7C4A;
+    padding-left: 25px;
+}
+
+#burgerToggle {
+    display: none;
+}
+
+#burgerToggle:checked ~ .menumob {
+    display: block;
+}
+
+.burg {
+    display: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* === СТИЛИ ДЛЯ ОСНОВНОГО HEADER С ЗАГОЛОВКОМ === */
+header {
+    background: linear-gradient(rgba(241, 232, 202, 0.3), rgba(48, 41, 28, 0.8)), url('./img/image.png');
+    background-size: cover;
+    background-position: center;
+    color: var(--light-text);
+    padding: 0 0 400px;
+    text-align: center;
+}
+
+header h1 {
+    padding-top: 30px;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === СТИЛИ ДЛЯ FOOTER === */
+footer {
+    background-color: #464545;
+    color: var(--light-text);
+    padding: 30px 0;
+    text-align: center;
+}
+
+/* === АДАПТИВНЫЕ СТИЛИ ДЛЯ HEADER И FOOTER === */
+@media (max-width: 1150px) {
+    .iten {
+        display: none;
+    }
+    .burg {
+        display: block;
+    }
+    .men {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-info .container {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .top-info-links {
+        justify-content: center;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        padding-top: 150px;
+    }
+
+    header {
+        padding: 0 0 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .menumob {
+        position: fixed;
+        top: 130px;
+        left: 0;
+        right: auto;
+        width: 80%;
+        max-width: 280px;
+        border-radius: 0 12px 12px 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .avito-logo {
+        max-width: 80px;
+        margin-left: 70px;
+    }
+    .logo-text {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-info {
+        font-size: 11px;
+        padding: 6px 0;
+    }
+    
+    .top-info-links {
+        gap: 8px;
+    }
+    
+    .top-info-btn {
+        padding: 3px 12px;
+        font-size: 11px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        padding-top: 100px;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 858px) {
+    .exit {
+        display: block;
+    }
+    .exitOne {
+        display: none;
+    }
+}
+
+@media (min-width: 859px) {
+    .exit {
+        display: none !important;
+    }
+    .exitOne {
+        display: block;
+    }
+}
+
+@media (min-width: 1150px) {
+    .burger-wrapper {
+        display: none;
+    }
+}
