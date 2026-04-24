@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sup&Kaik</title>
-    <link rel="icon" type="image/x-icon" href="./favicon/Mask groupICO.png">
+    <link rel="icon" type="image/x-icon" href="./img/logo/Logo.png">
     <link rel="stylesheet" href="../css/style.css">
     <style>
         * {
@@ -89,18 +89,46 @@
 
         /* Шапка в стиле Авито */
         .avito-style-header {
-            background: linear-gradient(#ffffff, #ffffff);
+            /* background: linear-gradient(#ffffff, #ffffff); */
+            background-color: #cac8c8;
             opacity: 0.95;
             padding: 12px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+        .avito-style-header .men {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* For the items inside */
+.iten {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.iten2 {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+}
 
         .avito-header-container {
-            display: flex;
+            /* display: flex;
             align-items: center;
             justify-content: flex-end;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 15px; */
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                gap: 30px;
+                margin-left: 80px;
         }
 
         /* Логотип как у Авито но в стиле SUP&Kayak */
@@ -654,15 +682,18 @@
             }
         }
 
-        .iten {
-            gap: 1vw;
+        .iten2 {
+           size: 20px;
             display: flex;
             
+        }
+        .iten2:hover{
+            color:#FF8C42;
         }
 
         /* === ВЕРХНЯЯ ИНФОРМАЦИОННАЯ ПАНЕЛЬ === */
     .top-info {
-        background-color: #2c2c2c;
+        background-color: #464545;
         color: #ffffff;
         padding: 8px 0;
         font-size: 13px;
@@ -758,12 +789,22 @@
             font-size: 11px;
         }
     }
-
+    .burg{
+        display: none;
+    }
+ @media(max-width:1150px){
+    .iten{
+        display: none;
+    }
+    .burg{
+        display: block;
+    }
+ }
     </style>
 </head>
 
 <body>
-    <div class="navbar-mobile hide-desktop j-navbar-mobile">
+    <!-- <div class="navbar-mobile hide-desktop j-navbar-mobile">
         <a class="navbar-mobile__link"
             data-wba-header-name="Main_tabbar" data-link-type="home"
             
@@ -790,29 +831,31 @@
                 <span class="navbar-mobile__notify hide"
                     data-link="{:(menuModel.eventsModel &amp;&amp; menuModel.eventsModel^eventsCount)}class{merge:!(~root.$auth.isAuth &amp;&amp; menuModel.eventsModel &amp;&amp; menuModel.eventsModel^eventsCount) toggle='hide'}"></span>
             </span> </a>
-    </div>
+    </div> -->
 
 
 
     <!-- Верхняя информационная панель -->
+    <!-- Верхняя информационная панель -->
     <div class="top-info">
         <div class="container">
-            <div class="top-info-links">
-                <a href="tel:89692005825">8 <span class="highlight-code">(969)</span> 200 58 25</a>
-                <span class="top-info-divider">|</span>
-                <span>Работаем с 07:00 до 19:00 МСК</span>
+            <div>
+                <a href="tel:89692005825">8<span style="color:#FBBB0A"> (969)</span> 200 58 25 (звонок бесплатный)</a>
+                <a href="#">Работаем с <span style="color:#FBBB0A">07:00</span> до <span style="color:#FBBB0A"> 19:00 </span> МСК</a>
             </div>
-            <button class="top-info-btn">Войти / Регистрация</button>
+            <a href="index.html" ><button  class="btn">Войти/Зарегистрироваться</button></a>
+        
         </div>
-    </div>   
+    </div> 
 
 
     <!-- Шапка в стиле Авито -->
     <div class="avito-style-header">
-
-        <div class="men" style="display: flex; gap: 40px;">
-                <!-- Логотип -->
+        
+        <div class="men" style="display: flex; ">
             <div class="avito-logo">
+                <img src="./img/logo/Logo.png" alt="Логотип" style="max-width: 100px;">
+                   <!-- Логотип -->
                 <a href="home" class="logo-text">
                     <span>Drive</span>&<span>Sport</span>
                 </a>
@@ -826,16 +869,20 @@
 
 
             <div class="iten">
-                <button>Аренда</button>
-                <button>Картинг</button>
-                <button>Галлерея</button>
-                <button>О нас</button>
-                <button>Контакты</button>
-                <buttoт>Отзывы</buttoт>
+                 <button class="iten2"><a href="ВыборАренды.html"><strong style="    border-bottom: 3px solid #FF7C4A;">Главная</strong></a></button>
+                <button class="iten2"><a href="ВыборАренды.html">Аренда</a></button>
+                <button  class="iten2"><a href="Karting.html">Картинг</a></button>
+                <button  class="iten2"><a href="Галерея.html">Галерея</a></button>
+                <button  class="iten2"><a href="оНас.html"> О нас</a></button>
+                <button  class="iten2"><a href="Контакты.html">Контакты</a></button>
+                <buttoт  class="iten2"><a href="Отзовы.html"> Отзывы</a></buttoт>
+            </div>
+            <div class="burg">
+                <img src="img/burger-bar.png" alt="" style="max-width: 40px;">
             </div>
 
             <!-- Кнопки входа и размещения -->
-            <div class="avito-actions">
+            <!-- <div class="avito-actions">
 
 
 
@@ -850,7 +897,7 @@
             </span>
                     Вход и регистрация</button>
                 
-            </div>
+            </div> -->
         </div>
     </div>
 

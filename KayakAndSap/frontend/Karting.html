@@ -1,11 +1,663 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Аква-Картинг | Водные гонки на гидроциклах в СПб</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* === ПОЛНОСТЬЮ ВАШ СТИЛЬ (с моими дополнениями для аква-картинга, без конфликтов) === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #ffffff;
+            --accent-color: #FF7C4A;
+            --light-color: #ffffff;
+            --dark-color: #464545;
+            --text-color: #333;
+            --light-text: #fff;
+            --avito-green: #00AA00;
+            --avito-red: #FF0000;
+            --avito-blue: #0AF;
+            --avito-purple: #965EEB;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJhIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgzMCkiPjxwYXRoIGQ9Ik0yMCAwTDQwIDIwIDIwIDQwIDAgMjB6IiBmaWxsPSIjMjBhZmZmMTAiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSI1IiBmaWxsPSIjZmY3YzRhMjAiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYSkiLz48L3N2Zz4=');
+            background-size: 40px 40px;
+            background-color: #eef2f5;
+            background-attachment: fixed;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Стили для верхней информационной панели как у Авито */
+        .top-info {
+            background-color: #464545;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-info .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-info a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .top-info button {
+            background: linear-gradient(45deg, #7472e6, #FF8C42);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .top-info button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Шапка в стиле Авито */
+        .avito-style-header {
+            background: linear-gradient(#ffffff, #ffffff);
+            opacity: 0.95;
+            padding: 12px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .avito-header-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Логотип как у Авито но в стиле SUP&Kayak -> аква-картинг */
+        .avito-logo {
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .avito-logo svg {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .logo-text span:first-child {
+            background: linear-gradient(45deg, #3B79BF, #2A8BF2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text span:last-child {
+            background: linear-gradient(45deg, #BA5D39, #FF8C42);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Поисковая строка как у Авито */
+        .avito-search {
+            flex: 1;
+            max-width: 500px;
+            min-width: 280px;
+        }
+
+        .search-wrapper {
+            display: flex;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .category-button {
+            background: #f0f0f0;
+            border: none;
+            padding: 12px 15px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #333;
+            border-right: 1px solid #ddd;
+            white-space: nowrap;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 12px 10px;
+            font-size: 1rem;
+            outline: none;
+            min-width: 100px;
+        }
+
+        .search-button {
+            background: linear-gradient(45deg, #7472e6, #FF8C42);
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .search-button:hover {
+            background: linear-gradient(45deg, #5a58b8, #e67a3a);
+        }
+
+        /* Иконки как у Авито */
+        .avito-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .icon-item:hover {
+            color: var(--accent-color);
+        }
+
+        .icon-item svg {
+            width: 22px;
+            height: 22px;
+            margin-bottom: 3px;
+        }
+
+        /* Кнопки входа и размещения */
+        .avito-actions {
+            margin-right: 10px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, #7472e6, #FF8C42);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            border: none;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .post-btn {
+            background: linear-gradient(45deg, #7472e6, #FF8C42);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .post-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Навигационное меню */
+        .main-nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* Hero секция (водная версия) */
+        .hero-aqua {
+            background: linear-gradient(rgba(0, 30, 50, 0.7), rgba(0, 0, 0, 0.6)), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDEwODAiPjxwYXRoIGZpbGw9IiMwMDRhN2YiIGZpbGwtb3BhY2l0eT0iMC4zIiBkPSJNMCAwaDE5MjB2MTA4MEgweiIvPjxjaXJjbGUgY3g9IjUwMCIgY3k9IjUwMCIgcj0iMjAwIiBmaWxsPSIjMDBhZmZmIiBmaWxsLW9wYWNpdHk9IjAuMiIvPjwvc3ZnPg==');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            padding: 60px 0 100px;
+            text-align: center;
+        }
+
+        .hero-aqua h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-aqua p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #ff652f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* секции */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            font-size: 2.2rem;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, #ffffff, #f0f8ff);
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        .feature:hover { transform: translateY(-5px); }
+        .feature i { font-size: 2.5rem; color: #FF7C4A; margin-bottom: 15px; }
+
+        /* Локации */
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .location-card {
+            background: rgba(255,255,255,0.92);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            border-left: 5px solid #FF7C4A;
+        }
+        .location-card h4 { font-size: 1.4rem; margin-bottom: 12px; }
+        .location-card address { font-style: normal; color: #555; margin: 10px 0;}
+        .loc-phone { color: #FF7C4A; font-weight: bold; display: inline-block; margin-top: 10px;}
+
+        /* гидроциклы */
+        .watercraft-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .watercraft-item {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            width: 260px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .watercraft-item i { font-size: 3rem; color: #FF7C4A; margin-bottom: 15px;}
+
+        /* rush wave блок (данные из картинки) */
+        .rush-panel {
+            background: linear-gradient(115deg, #0a2b3e, #03141f);
+            color: white;
+            border-radius: 30px;
+            padding: 35px 25px;
+            margin-top: 20px;
+        }
+        .race-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .lap-info { font-family: monospace; font-size: 1.7rem; font-weight: bold; }
+        .lap-info .big-lap { font-size: 2.8rem; color: #0affdc; }
+        .judge-badge i { font-size: 2rem; margin-right: 8px; vertical-align: middle;}
+
+        /* документы */
+        .docs-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .doc-item {
+            background: white;
+            padding: 15px 24px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+        .form-control { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 30px; }
+
+        footer {
+            background-color: #464545;
+            color: var(--light-text);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        /* адаптив ваших стилей */
+        @media (max-width: 768px) {
+            .avito-header-container { flex-direction: column; align-items: stretch; }
+            .avito-search { width: 100%; max-width: none; }
+            .avito-icons, .avito-actions { justify-content: center; }
+            .hero-aqua h1 { font-size: 2rem; }
+            section { padding: 50px 0; }
+            .race-stats { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .search-wrapper { flex-direction: column; }
+            .category-button, .search-button { width: 100%; text-align: center; }
+        }
+        .highlight-code { color: #FF8C42; font-weight: 600; }
+    </style>
 </head>
 <body>
-    
+
+<!-- Верхняя панель (как на Авито) -->
+<div class="top-info">
+    <div class="container">
+        <div class="top-info-links">
+            <span>🚤 Аква-Картинг СПб</span>
+            <span class="top-info-divider">|</span>
+            <a href="#">Гидроциклы</a>
+            <a href="#">Водные трассы</a>
+            <a href="#">Правила</a>
+            <span class="highlight-code">+7 (812) 6 777 323</span>
+        </div>
+        <button class="top-info-btn" id="topLoginBtn">Войти / Регистрация</button>
+    </div>
+</div>
+
+<!-- Шапка в стиле Авито (лого, поиск, иконки) -->
+<div class="avito-style-header">
+    <div class="container avito-header-container">
+        <div class="avito-logo">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#FF7C4A" stroke-width="1.5" fill="#FF8C42" fill-opacity="0.3"/>
+                <path d="M2 17L12 22L22 17" stroke="#FF7C4A" stroke-width="1.5" fill="none"/>
+                <path d="M2 12L12 17L22 12" stroke="#FF7C4A" stroke-width="1.5" fill="none"/>
+                <circle cx="12" cy="12" r="1.5" fill="#FF7C4A"/>
+            </svg>
+            <div class="logo-text"><span>AQUA</span><span>KARTING</span></div>
+        </div>
+
+        <div class="avito-search">
+            <div class="search-wrapper">
+                <button class="category-button">Аква-категории</button>
+                <input type="text" placeholder="Найти заезд, гидроцикл или трассу..." class="search-input">
+                <button class="search-button">Найти</button>
+            </div>
+        </div>
+
+        <div class="avito-icons">
+            <a href="#" class="icon-item"><i class="fas fa-heart" style="font-size: 22px;"></i><span>Избранное</span></a>
+            <a href="#" class="icon-item"><i class="fas fa-comment-dots" style="font-size: 22px;"></i><span>Сообщения</span></a>
+            <a href="#" class="icon-item"><i class="fas fa-user-circle" style="font-size: 24px;"></i><span>Профиль</span></a>
+        </div>
+        <div class="avito-actions">
+            <button class="login-btn" id="mainLoginBtn">Войти</button>
+            <button class="post-btn" id="postBtn">Разместить заезд</button>
+        </div>
+    </div>
+</div>
+
+<!-- Навигация -->
+<div class="main-nav">
+    <div class="container">
+        <ul class="nav-links">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Аква-карты</a></li>
+            <li><a href="#">Акватории</a></li>
+            <li><a href="#">Расписание гонок</a></li>
+            <li><a href="#">Безопасность</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Hero с водным акцентом -->
+<section class="hero-aqua">
+    <div class="container">
+        <div style="background: rgba(0,0,0,0.45); display: inline-block; padding: 8px 28px; border-radius: 60px; margin-bottom: 20px; backdrop-filter: blur(4px);">
+            <span><i class="fas fa-stopwatch"></i> TIME: 01:45.32 &nbsp;|&nbsp; LAP 3/5 &nbsp;|&nbsp; RUSH WAVE &nbsp;|&nbsp; JUDGE</span>
+        </div>
+        <h1>Испытай <strong style="color:#FF8C42;">себя</strong><br>Аква-Картинг в Санкт-Петербурге</h1>
+        <p>Премиум-акватории • Гидроциклы Yamaha, Sea-Doo • Гоночная система RUSH WAVE</p>
+        <button class="btn" id="bookHeroBtn"><i class="fas fa-water"></i> Забронировать заезд</button>
+        <div style="margin-top: 24px;"><i class="fas fa-phone-alt"></i> +7 (812) 6 777 323 — запись онлайн</div>
+    </div>
+</section>
+
+<!-- Преимущества вместо карт -->
+<section class="equipment">
+    <div class="container">
+        <div class="section-title"><i class="fas fa-tachometer-alt"></i> Почему аква-картинг?</div>
+        <div class="features">
+            <div class="feature"><i class="fas fa-chalkboard-user"></i><h3>Инструкторы</h3><p>Профессиональные наставники на воде</p></div>
+            <div class="feature"><i class="fas fa-map-marked-alt"></i><h3>Акватории</h3><p>Финский залив, Охта, озеро Разлив</p></div>
+            <div class="feature"><i class="fas fa-water"></i><h3>Водные трассы</h3><p>Буйки, волновые коридоры, манёвры</p></div>
+            <div class="feature"><i class="fas fa-fan"></i><h3>Гидроциклы</h3><p>Yamaha GP, Sea-Doo 300 л.с.</p></div>
+            <div class="feature"><i class="fas fa-life-ring"></i><h3>Безопасность</h3><p>Спасжилеты, гидрокостюмы, страховка</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Секция RUSH WAVE (как на картинке) -->
+<div class="container">
+    <div class="rush-panel">
+        <div class="race-stats">
+            <div class="lap-info"><i class="far fa-clock"></i> TIME: <span class="big-lap">01:45.32</span><br> LAP 3/5</div>
+            <div class="judge-badge"><i class="fas fa-flag-checkered"></i> START / FINISH<br><i class="fas fa-gavel"></i> JUDGE READY</div>
+            <div><i class="fas fa-bolt"></i> RUSH WAVE<br>RULES OF REWARDS</div>
+        </div>
+        <p style="margin-top: 25px; text-align:center;"><i class="fas fa-tachometer-alt"></i> Система электронного судейства WAVE JUDGE. Каждый круг фиксируется в реальном времени.</p>
+    </div>
+</div>
+
+<!-- Локации (полностью заменили карты на акватории) -->
+<section>
+    <div class="container">
+        <div class="section-title"><i class="fas fa-anchor"></i> Наши акватории</div>
+        <div class="locations-grid">
+            <div class="location-card"><h4><i class="fas fa-water"></i> Финский залив, пляж «Ласковый»</h4><address>СПб, Курортный р-н, причал №7</address><div class="loc-phone"><i class="fas fa-phone"></i> +7 812 6 777 323</div></div>
+            <div class="location-card"><h4><i class="fas fa-ship"></i> Река Охта, гребной канал</h4><address>пр. Энергетиков, 10, яхтенная стоянка</address><div class="loc-phone"><i class="fas fa-phone"></i> +7 812 6 777 323</div></div>
+            <div class="location-card"><h4><i class="fas fa-mountain"></i> Озеро Разлив, Сестрорецк</h4><address>Сестрорецк, Приморское шоссе, база «Водный мир»</address><div class="loc-phone"><i class="fas fa-phone"></i> +7 812 6 777 323</div></div>
+            <div class="location-card"><h4><i class="fas fa-sailboat"></i> Невская губа, Яхт-клуб «Хельсингфорс»</h4><address>Заневский пр., 65 к.1, причал малой Невы</address><div class="loc-phone"><i class="fas fa-phone"></i> +7 812 449 10 49</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- гидроциклы (замена картов) -->
+<section style="background: #f4f9fe;">
+    <div class="container">
+        <div class="section-title"><i class="fas fa-fan"></i> Аква-карты (гоночные гидроциклы)</div>
+        <div class="watercraft-grid">
+            <div class="watercraft-item"><i class="fas fa-tachometer-alt"></i><h3>Yamaha GP1800R</h3><p>180 л.с., 0-100 км/ч за 3.6с</p><i class="fas fa-check-circle" style="color:#FF7C4A;"></i> Wave карт</div>
+            <div class="watercraft-item"><i class="fas fa-water"></i><h3>Sea-Doo RXP-X 300</h3><p>300 л.с., система RUSH JUDGE</p><i class="fas fa-gem"></i> Premium Race</div>
+            <div class="watercraft-item"><i class="fas fa-stopwatch"></i><h3>Kawasaki Ultra 310X</h3><p>гоночная серия, стабилизатор волн</p><i class="fas fa-flag-checkered"></i> Турборежим</div>
+        </div>
+    </div>
+</section>
+
+<!-- Документы (заменены на водные) -->
+<section>
+    <div class="container">
+        <div class="section-title"><i class="fas fa-file-signature"></i> Документы аква-клуба</div>
+        <div class="docs-list">
+            <div class="doc-item" data-doc="oferta"><i class="fas fa-file-pdf"></i> Договор аренды гидроцикла</div>
+            <div class="doc-item" data-doc="safety"><i class="fas fa-file-pdf"></i> Правила безопасности на акватории</div>
+            <div class="doc-item" data-doc="judge"><i class="fas fa-file-pdf"></i> Протокол судейства RUSH WAVE</div>
+            <div class="doc-item" data-doc="consent"><i class="fas fa-file-pdf"></i> Согласие на прохождение трассы</div>
+        </div>
+        <p style="text-align:center; margin-top: 35px;"><i class="fas fa-life-ring"></i> Все договоры действительны в сети клубов Аква-Картинг СПб</p>
+    </div>
+</section>
+
+<!-- Форма обратной связи -->
+<div class="container" style="margin-bottom: 60px;">
+    <div class="contact-form">
+        <h3 style="text-align:center; margin-bottom: 25px;">Бронирование заезда на гидроцикле</h3>
+        <form id="bookForm">
+            <div class="form-group"><label>Имя</label><input type="text" class="form-control" placeholder="Ваше имя" required></div>
+            <div class="form-group"><label>Телефон</label><input type="tel" class="form-control" placeholder="+7 (___)" required></div>
+            <div class="form-group"><label>Акватория</label><select class="form-control"><option>Финский залив</option><option>Река Охта</option><option>Озеро Разлив</option></select></div>
+            <button type="submit" class="btn" style="width:100%;">Записаться на заезд</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p><i class="fas fa-map-pin"></i> Аква-Картинг Санкт-Петербург — водные гонки на гидроциклах, заезды для взрослых и детей (от 14 лет).</p>
+        <p style="margin-top: 12px;">© AQUAKARTING.RU | Все права защищены | +7 (812) 6 777 323 | Работаем ежедневно 10:00–22:00</p>
+    </div>
+</footer>
+
+<script>
+    // имитация скачивания документов
+    const docs = document.querySelectorAll('.doc-item');
+    docs.forEach(doc => {
+        doc.addEventListener('click', () => alert('📄 Документ будет доступен для скачивания. Свяжитесь с менеджером для подписания.'));
+    });
+    // бронирование по форме
+    const form = document.getElementById('bookForm');
+    if(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('✅ Заявка принята! Наш оператор свяжется с вами в течение 15 минут для подтверждения заезда.');
+            form.reset();
+        });
+    }
+    const heroBtn = document.getElementById('bookHeroBtn');
+    if(heroBtn) heroBtn.addEventListener('click', () => alert('📞 Звонок в колл-центр +7 (812) 6 777 323'));
+
+    const topLogin = document.getElementById('topLoginBtn');
+    const mainLoginBtn = document.getElementById('mainLoginBtn');
+    const postBtn = document.getElementById('postBtn');
+    if(topLogin) topLogin.onclick = () => alert('Форма входа (демо-режим)');
+    if(mainLoginBtn) mainLoginBtn.onclick = () => alert('Вход в личный кабинет');
+    if(postBtn) postBtn.onclick = () => alert('Разместить заезд — функция для организаторов');
+    // поиск
+    const searchBtn = document.querySelector('.search-button');
+    if(searchBtn) searchBtn.addEventListener('click', () => alert('Поиск аква-трасс и гидроциклов (демо)'));
+</script>
 </body>
 </html>
