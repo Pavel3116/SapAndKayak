@@ -43,8 +43,8 @@
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
+            /* width: 90%; */
+            max-width: 1600px;
             margin: 0 auto;
             padding: 0 15px;
         }
@@ -91,14 +91,15 @@
         /* Шапка в стиле Авито */
         .avito-style-header {
             /* background: linear-gradient(#ffffff, #ffffff); */
-            background-color: #cac8c8;
+            background: linear-gradient(#ffffff, #ffffff);
             opacity: 0.95;
             padding: 12px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         .avito-style-header .men {
+            gap: 200px;
             display: flex;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 20px;
     align-items: center;
@@ -107,6 +108,7 @@
 
 /* For the items inside */
 .iten {
+     white-space: nowrap; /* Запрещает перенос текста */
     display: flex;
     gap: 20px;
     align-items: center;
@@ -346,6 +348,7 @@
         }
 
         .btn {
+             white-space: nowrap; /* Запрещает перенос текста */
             display: inline-block;
             background-color: var(--accent-color);
             color: var(--light-text);
@@ -359,7 +362,7 @@
         }
 
         .btn:hover {
-            background-color: var(--primary-color);
+            /* background-color: var(); */
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
@@ -376,7 +379,7 @@
         }
 
         .equipment {
-            background-color: rgba(255, 255, 255, 0.49);
+            background-color: rgba(255, 255, 255);
         }
 
         .equipment-content {
@@ -395,10 +398,10 @@
         }
 
         .adventure-card {
-            opacity: 0.89;
+            /* opacity: 0.89; */
             padding: 25px;
-            background: linear-gradient(#d5e4f7, #f09d7c);
-            background-color: rgb(253, 250, 235);
+            /* background: linear-gradient(#d5e4f7, #f09d7c); */
+            /* background-color: rgb(253, 250, 235); */
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(255, 254, 254, 0.5);
@@ -437,7 +440,7 @@
         }
 
         .feature {
-            background: linear-gradient(#d5e4f7, #e98f6c);
+            /* background: linear-gradient(#d5e4f7, #e98f6c); */
             flex: 1;
             min-width: 250px;
             max-width: 350px;
@@ -697,14 +700,14 @@
     .top-info {
         background-color: #464545;
         color: #ffffff;
-        padding: 8px 0;
+        padding: 15px 0;
         font-size: 13px;
         font-family: 'Arial', sans-serif;
     }
 
     .top-info .container {
-        width: 90%;
-        max-width: 1200px;
+        /* width: 90%;
+        max-width: 1200px; */
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -794,6 +797,14 @@
     .burg{
         display: none;
     }
+     @media(max-width:1585px){
+    #One{
+        display:none;
+    }
+    .burg{
+        display: block;
+    }
+ }
  @media(max-width:1150px){
     .iten{
         display: none;
@@ -984,9 +995,18 @@
 }
 
 /* Адаптивность */
-@media (max-width: 1150px) {
-    .iten {
+@media (max-width: 1230px) {
+    .iten5 {
         display: none;
+    }
+    .iten4 {
+        display: none;
+    }
+    .menumob6{
+        display: block;
+    }
+    .menumob5{
+        display: block;
     }
     .burg {
         display: block;
@@ -1050,7 +1070,7 @@
         display: none;
     }
 }
-@media(min-width:1150px){
+@media(min-width:1586px){
     
     .burger-wrapper{
         display: none;
@@ -1064,39 +1084,77 @@
         display: block;
     }
 }
+.P_border_left{
+    border-left: 3px solid rgb(224, 98, 52);
+    border-radius:10px;
+    padding-left: 20px;
+}
+
+
+@media(max-width:850px){
+    .avito-style-header .men {
+        gap: 20px;
+    }
+}
+@media (max-width: 1585px) {
+    /* .iten {
+        display: none;
+    } */
+     #One{
+        display: none;
+     }
+    .burg {
+        display: block;
+        
+    }
+    .menumob1{
+            display: none;
+        }
+    .menumob2{
+            display: none;
+        }
+        .menumob3{
+            display: none;
+        }
+        .menumob4{
+            display: none;
+        }
+        .menumob5{
+            display: none;
+        }
+        .menumob6{
+            display: none;
+        }
+        .menumob7{
+            display: none;
+        }
+    .men {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+}
+@media(max-width:1367px){
+    .iten7{
+        display: none;
+    }
+    .iten6{
+        display: none;
+    }
+    .menumob7{
+        display: block;
+    }
+    .menumob6{
+        display: block;
+    }
+}
+Вот полн
     </style>
 </head>
 
 <body>
-    <!-- <div class="navbar-mobile hide-desktop j-navbar-mobile">
-        <a class="navbar-mobile__link"
-            data-wba-header-name="Main_tabbar" data-link-type="home"
-            
-            aria-label="Главная страница" href="#"> <span
-                class="navbar-mobile__icon navbar-mobile__icon--home navbar-mobile__icon--active"
-                data-link="class{merge:menuModel.type == 'home' toggle='navbar-mobile__icon--active'}"></span> </a>
-        <div class="navbar-mobile__wrap"> <button id="catalogNavbarLink" class="navbar-mobile__link"
-                data-wba-header-name="Catalog_tabbar" data-link-type="catalog" aria-label="Каталог" type="button"> <span
-                    class="navbar-mobile__icon navbar-mobile__icon--catalog"
-                    data-link="class{merge:menuModel.catalogState toggle='navbar-mobile__icon--active'}"></span>
-            </button> </div> <a class="navbar-mobile__link" data-wba-header-name="Cart_tabbar" href="#"
-            aria-label="Корзина"> <span class="navbar-mobile__icon navbar-mobile__icon--basket"
-                data-link="class{merge:menuModel.type == 'basket' toggle='navbar-mobile__icon--active'}"> <span
-                    class="navbar-mobile__notify hide"
-                    data-link="{:menuModel.basketCount}class{merge:!menuModel.basketCount toggle='hide'}"></span>
-            </span> </a> <a class="navbar-mobile__link" data-wba-header-name="Favorites_tabbar" href="#"
-            aria-label="Избранные товары" data-link="{on 'click' showPopupLoginMobile}" data-jsv="#7^/7^"> <span
-                class="navbar-mobile__icon navbar-mobile__icon--favorites"
-                data-link="class{merge:menuModel.type == 'poned' toggle='navbar-mobile__icon--active'}"></span> </a> <a
-            class="navbar-mobile__link" data-wba-header-name="LK_tabbar" href="#" aria-label="Личный кабинет"
-            data-link="{on 'click' showPopupLoginMobile}" data-jsv="#9^/9^"> <span
-                class="navbar-mobile__icon navbar-mobile__icon--profile" 
-                data-link="class{merge: menuModel.isB2B toggle='navbar-mobile__icon--b2b'}class{merge:(menuModel.type == 'profile' || menuModel.type == 'archive') toggle='navbar-mobile__icon--active'}class{merge: menuModel.isPremium toggle='navbar-mobile__icon--premium'}">
-                <span class="navbar-mobile__notify hide"
-                    data-link="{:(menuModel.eventsModel &amp;&amp; menuModel.eventsModel^eventsCount)}class{merge:!(~root.$auth.isAuth &amp;&amp; menuModel.eventsModel &amp;&amp; menuModel.eventsModel^eventsCount) toggle='hide'}"></span>
-            </span> </a>
-    </div> -->
-
 
 
     <!-- Верхняя информационная панель -->
@@ -1140,17 +1198,23 @@
                 <span>Drive</span>&<span>Sport</span>
             </a>
         </div>
+<div style="display: flex; gap: 80px;">
 
-        <!-- Десктопное меню -->
-        <div class="iten">
-            <button class="iten2"><a href="ВыборАренды.html"><strong style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a></button>
-            <button class="iten2"><a href="ВыборАренды.html">Аренда</a></button>
-            <button class="iten2"><a href="Karting.html">Картинг</a></button>
-            <button class="iten2"><a href="Галерея.html">Галерея</a></button>
-            <button class="iten2"><a href="оНас.html">О нас</a></button>
-            <button class="iten2"><a href="Контакты.html">Контакты</a></button>
-            <button class="iten2"><a href="Отзовы.html">Отзывы</a></button>
+    <!-- Десктопное меню -->
+    <div class="iten">
+        <button class="iten1"><a href="ВыборАренды.html"><strong style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a></button>
+        <button class="iten2"><a href="ВыборАренды.html">Аренда</a></button>
+        <button class="iten3"><a href="Karting.html">Картинг</a></button>
+        <button class="iten4"><a href="Галерея.html">Галерея</a></button>
+        <button class="iten5"><a href="оНас.html">О нас</a></button>
+        <button class="iten6"><a href="Контакты.html">Контакты</a></button>
+        <button class="iten7"><a href="Отзовы.html">Отзывы</a></button>
+    </div>
+<div>
+            <button id="One" class="btn">Оставить заявку</button>
         </div>
+   
+</div>
 
         <!-- БУРГЕР: ВСЁ В ОДНОМ КОНТЕЙНЕРЕ -->
         <div class="burger-wrapper">
@@ -1161,13 +1225,16 @@
             
             <!-- Мобильное меню - теперь оно соседствует с чекбоксом -->
             <ul class="menumob">
-                <li><a href="ВыборАренды.html"><strong style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a></li>
-                <li><a href="ВыборАренды.html">Аренда</a></li>
-                <li><a href="Karting.html">Картинг</a></li>
-                <li><a href="Галерея.html">Галерея</a></li>
-                <li><a href="оНас.html">О нас</a></li>
-                <li><a href="Контакты.html">Контакты</a></li>
-                <li><a href="Отзовы.html">Отзывы</a></li>
+                <li class="menumob1"><a href="ВыборАренды.html"><strong style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a></li>
+                <li class="menumob2"><a href="ВыборАренды.html">Аренда</a></li>
+                <li class="menumob3"><a href="Karting.html">Картинг</a></li>
+                <li class="menumob4"><a href="Галерея.html">Галерея</a></li>
+                <li class="menumob5" ><a href="оНас.html">О нас</a></li>
+                <li class="menumob6"><a href="Контакты.html">Контакты</a></li>
+                <li class="menumob7"><a href="Отзовы.html">Отзывы</a></li>
+                 <li class="menumob8"><a href="#" style="display: flex;">
+                    <img src="img/zaivka.png" alt="Заявка" style="max-width: 40px;">
+                    Оставить заявку</a></li>
                 <li class="exit" style="display: flex;">
                     <img src="img/person.png" alt="" style="max-width: 40px;">
                     <a href="">Войти\Зарегестрироваться</a></li>
@@ -1181,6 +1248,7 @@
             data-marker="more-popup" role="tooltip">
          
         </div>
+        
 
 
     </div>
@@ -1200,17 +1268,17 @@
         </header>
 
         <!-- Остальной контент без изменений -->
-        <section class="equipment" style="opacity: 0.89;">
+        <section class="equipment" >
             <div class="container">
                 <h2 class="section-title">Аренда сапов & гидроциклов, водный картинга — выбери своё настроение на воде</h2>
-                <p>
+                <p class="P_border_left">
                     <strong><em>Drive&Sport</em></strong>
  — это твоя личная формула водного счастья. Бери SUP и плыви в своём ритме, наслаждаясь тишиной и простором. Садись за штурвал гидроцикла — и устрой водный картинг с виражами, брызгами и адреналином. Никакой скуки, только вода, скорость и свобода. Приезжай в DroveSport — докажи волнам, кто здесь главный.
                 </p>
             </div>
         </section>
 
-        <section id="adventures" style="background-color: rgba(255, 255, 255, 0.89);">
+        <section id="adventures" style="background-color: rgba(255, 255, 255);">
             <div class="container">
                 <h2 class="section-title">Мы предлогаем</h2>
                 <div class="adventures">
@@ -1220,12 +1288,14 @@
                         </div>
                         <div class="adventure-content">
                             <a href="ВыборАренды.html" style="text-decoration: none;">
-                                <h3><span style="text-align: center; border-bottom: 3px solid #FF7C4A;">Аренда </span></h3>
+                                <h3 style="    text-align: center; margin-bottom: 10px;"><span style="text-align: center; border-bottom: 3px solid #FF7C4A;  margin-bottom: 10px;">Аренда </span></h3>
                             </a>
-                            <p>Для тех, кто любит сам решать, куда плыть.<br>
+                            <p class="P_border_left">Для тех, кто любит сам решать, куда плыть.<br>
 
 Сапы, каяки, гидроциклы и не только. Просто выбирай снаряд, получай инструктаж и отправляйся в своё приключение. Без лишних людей. Без навязанных маршрутов.</p>
                         </div>
+                         <a style="margin-top: 10px;" href="ВыборТуров.html" class="btn"> подробнее...
+                            </a>
                     </div>
                     <div class="adventure-card">
                         <div class="adventure-image">
@@ -1233,18 +1303,27 @@
                         </div>
                         <div class="adventure-content">
                             <a href="ВыборТуров.html" style="text-decoration: none;">
-                                <h3 style="text-align: center; border-bottom: 3px solid #FF7C4A;">Водный картинг
+                                <h3 style="text-align: center; border-bottom: 3px solid #FF7C4A; margin-bottom: 10px;">Водный картинг
                                 </h3>
                             </a>
-                            <p>Для тех, кто хочет скорости и адреналина.
+                            <p class="P_border_left">Для тех, кто хочет скорости и адреналина.
 Садитесь за руль гидроцикла и устройте настоящий водный картинг. Виражи, газ в пол, брызги за спиной — всё, чтобы забыть обо всём. Без туров. Без гидов. Просто драйв.</p>
                         </div>
+                        <a style="margin-top: 10px;" href="ВыборТуров.html" class="btn"> подробнее...
+                            </a>
+
                     </div>
+
+                        
+                            
+                            
+                      
+                   
                 </div>
             </div>
         </section>
 
-        <section class="why-us" style="background-color: rgba(255, 255, 255, 0.89);">
+        <section class="why-us" style="background-color: rgba(255, 255, 255);">
             <div class="container">
                 <h2 class="section-title">Почему выбирают нас</h2>
                 <div class="features">
@@ -1277,7 +1356,7 @@
             </div>
         </section>
 
-        <section style="background-color: #ffffff; opacity: 0.89; background: linear-gradient(#f0efee, #afaca1);">
+        <section style="background-color: #ffffff; opacity:0.89 ;  background: linear-gradient(#f0efee, #afaca1);">
             <div class="container">
                 <h2 class="section-title">Часто задаваемые вопросы</h2>
                 <div class="faq">
@@ -1377,8 +1456,26 @@
                     </div>
                     <div class="contact-item">
                         <h3>Социальные сети</h3>
-                        <p>Telegram: https://t.me/KasperHello</p>
-                        <p>VK: https://vk.com/kaspermerryfellow</p>
+                        <p style="display: flex;"> 
+                            
+                            <a href="https://t.me/KasperHello">
+                                <img src="img/telegram_logo_circle_icon_134012.png" alt="" style="max-width: 40px;">
+                                Telegram</a></p>
+
+
+
+                       <p style="display: flex; margin-left: 6px; margin-top: 3px;"> 
+                            
+                            <a href="https://t.me/KasperHello">
+                                <img src="img/vk_icon-icons.com_66102.png" alt="" style="max-width: 30px;">
+                                VK</a></p>
+
+
+                        <p style="display: flex; margin-left:6px; margin-top: 4px;"> 
+                            
+                            <a href="https://t.me/KasperHello">
+                                <img src="img/instagram.png" alt="" style="max-width: 30px;">
+                                instagram</a></p>
                     </div>
                 </div>
             </div>
@@ -1386,7 +1483,7 @@
 
         <footer>
             <div class="container">
-                <p>&copy; 2025 SUP&Kayak Водные Приключения. Все права защищены.</p>
+                <p>&copy; 2025 DRIVE&SPORT Водные Приключения. Все права защищены.</p>
                 <p>Разработано с любовью к водным видам спорта</p>
             </div>
         </footer>
@@ -1455,7 +1552,7 @@
 
                 // (Опционально) Предотвращаем закрытие при клике внутри самого попапа
                 popup.addEventListener('click', function (event) {
-                    event.stopPropagation();
+                    event.stopPropagation();   
                 });
 
             });
