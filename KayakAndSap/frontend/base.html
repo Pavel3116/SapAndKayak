@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sap&Kayak | Водные приключения</title>
+    <link rel="stylesheet" href="css/HeaderAndFooter.css">
+
+</head>
+
+<body>
+    <!-- Верхняя информационная панель -->
+    <div class="top-info">
+        <div class="container">
+            <div style="display: flex; gap: 20px;">
+                <div>
+                    <a href="tel:89692005825">8<span style="color:#FBBB0A"> (969)</span> 200 58 25 (звонок
+                        бесплатный)</a>
+                </div>
+                <div>
+                    <a href="#">Работаем с <span style="color:#FBBB0A">07:00</span> до <span
+                            style="color:#FBBB0A">19:00</span> МСК</a>
+                </div>
+            </div>
+            <div class="exitOne">
+                <a href="index.html"><button class="btn">Войти/Зарегистрироваться</button></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Шапка с адаптивным меню -->
+    <div class="sap_kayak-style-header main-nav">
+        <div class="men">
+            <div class="sap_and_kayak-logo">
+                <img src="./img/logo/Untitled.png" alt="Логотип" style="max-width: 100px;">
+                <a href="home" class="logo-text">
+                    <span>Sap</span><span>&</span><span>Kayak</span>
+                </a>
+            </div>
+            <div style="display: flex; gap: 80px;">
+                <!-- ДЕСКТОПНОЕ МЕНЮ с выпадающим списком "Услуги" -->
+                <div class="iten">
+                    <a href="ВыборАренды.html" class="iten1"><strong
+                            style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a>
+
+                    <!-- ДЕСКТОПНЫЙ ДРОПДАУН "Услуги" -->
+                    <div class="dropdown">
+                        <button class="dropdown-btn">Услуги ▼</button>
+                        <div class="dropdown-content">
+                            <a href="ВыборАренды.html">Аренда</a>
+                            <a href="Karting.html">Картинг</a>
+                            <a href="ВыборТуров.html">Туры / Прогулки</a>
+                        </div>
+                    </div>
+
+                    <a href="Галерея.html" class="iten4">Галерея</a>
+                    <a href="оНас.html" class="iten5">О нас</a>
+                    <a href="Контакты.html" class="iten6">Контакты</a>
+                    <a href="Отзовы.html" class="iten7">Отзывы</a>
+                </div>
+                <div>
+                    <button id="One" class="btn">Оставить заявку</button>
+                </div>
+            </div>
+
+            <!-- БУРГЕР-МЕНЮ -->
+            <div class="burger-wrapper">
+                <input type="checkbox" id="burgerToggle">
+                <label for="burgerToggle" class="burg">
+                    <img src="img/buterbrod.png" alt="Меню" style="max-width: 40px; cursor: pointer;">
+                </label>
+                <ul class="menumob">
+                    <li class="menumob1"><a href="ВыборАренды.html"><strong
+                                style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a></li>
+                    <!-- Мобильный пункт "Услуги" с подменю -->
+                    <li class="has-submenu mob-services-item menumob-services" id="mobServicesItem">
+                        <a href="#" style="justify-content: space-between; display: flex;">Услуги <span
+                                style="font-size: 18px;">▼</span></a>
+                        <ul class="mobile-submenu">
+                            <li><a href="ВыборАренды.html">Аренда</a></li>
+                            <li><a href="Karting.html">Картинг</a></li>
+                            <li><a href="ВыборТуров.html">Туры / Прогулки</a></li>
+                        </ul>
+                    </li>
+                    <li class="menumob2"><a href="ВыборАренды.html">Аренда</a></li>
+                    <li class="menumob3"><a href="ВыборТуров.html">Туры\прогулки</a></li>
+                    <li class="menumob4"><a href="Галерея.html">Галерея</a></li>
+                    <li class="menumob5"><a href="оНас.html">О нас</a></li>
+                    <li class="menumob6"><a href="Контакты.html">Контакты</a></li>
+                    <li class="menumob7"><a href="Отзовы.html">Отзывы</a></li>
+                    <li class="menumob8"><a href="#" style="display: flex; gap: 8px;">
+                            <img src="img/zaivka.png" alt="Заявка" style="max-width: 30px;">
+                            Оставить заявку</a></li>
+                    <li class="exit" style="display: flex;">
+                        <img src="img/person.png" alt="" style="max-width: 40px;">
+                        <a href="">Войти\Зарегистрироваться</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>ОТКРОЙТЕ МИР ВОДНЫХ ПРИКЛЮЧЕНИЙ</h1>
+            <p>От сапов до водного картинга — и даже больше.</p>
+            <a href="ВыборТуров.html" class="btn"
+                style="background: linear-gradient(45deg, #7472e6, #FF8C42);">Услуги</a>
+            <a href="ВыборАренды.html" class="btn"
+                style="background: linear-gradient(45deg, #7472e6, #FF8C42);">Связаться с нами</a>
+        </div>
+    </header>
+
+    <section class="contacts">
+        <div class="container">
+            <h2
+                style="color: white; text-align: center; border-bottom: 3px solid #FF7C4A; padding-bottom: 10px; margin-bottom: 50px;">
+                Наши контакты
+            </h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Контакты</h3>
+                    <p>Телефон: +7 (969) 200-58-25</p>
+                    <p>Email: pavlikgena23@gmail.com</p>
+                    <p>Адрес: г. СПБ</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Часы работы</h3>
+                    <p>Пн-Пт: 9:00 - 20:00</p>
+                    <p>Сб-Вс: 8:00 - 22:00</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Социальные сети</h3>
+                    <p style="display: flex; align-items: center; gap: 8px;">
+                        <a href="https://t.me/KasperHello"><img src="img/telegram_logo_circle_icon_134012.png" alt=""
+                                style="max-width: 30px;"> Telegram</a>
+                    </p>
+                    <p style="display: flex; align-items: center; gap: 8px; margin-top: 8px;">
+                        <a href="https://vk.com"><img src="img/vk_icon-icons.com_66102.png" alt=""
+                                style="max-width: 27px;"> VK</a>
+                    </p>
+                    <p style="display: flex; align-items: center; gap: 8px; margin-top: 8px;">
+                        <a href="https://instagram.com"><img src="img/instagram.png" alt="" style="max-width: 27px;">
+                            Instagram</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sap&Kayak Водные Приключения. Все права защищены.</p>
+            <p>Разработано с любовью к водным видам спорта</p>
+        </div>
+    </footer>
+    (function() {
+    // Мобильное подменю "Услуги"
+    const mobServices = document.getElementById('mobServicesItem');
+    if (mobServices) {
+    const link = mobServices.querySelector('a');
+    link.addEventListener('click', function(e) {
+    e.preventDefault();
+    mobServices.classList.toggle('open');
+    const spanIcon = link.querySelector('span');
+    if (spanIcon) {
+    spanIcon.innerHTML = mobServices.classList.contains('open') ? '▲' : '▼';
+    }
+    });
+    }
+
+    // Закрытие бургера при клике вне его
+    const burgerToggle = document.getElementById('burgerToggle');
+    const mobileMenu = document.querySelector('.menumob');
+    if (burgerToggle && mobileMenu) {
+    document.addEventListener('click', function(event) {
+    const isInside = burgerToggle.parentElement.contains(event.target) || mobileMenu.contains(event.target);
+    if (!isInside && burgerToggle.checked) {
+    burgerToggle.checked = false;
+    }
+    });
+    }
+
+    // Кнопки "Оставить заявку"
+    const requestBtns = document.querySelectorAll('#One, .menumob8 a');
+    requestBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+    if (btn.getAttribute('href') === '#') e.preventDefault();
+    alert('Форма заявки откроется в ближайшее время. Спасибо за интерес!');
+    });
+    });
+    })();
+    </script> -->
+
+    <script>
+        (function () {
+            // Мобильное подменю "Услуги"
+            const mobServices = document.getElementById('mobServicesItem');
+            if (mobServices) {
+                const link = mobServices.querySelector('a');
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Останавливаем всплытие события, чтобы не закрывалось меню
+                    mobServices.classList.toggle('open');
+                    const spanIcon = link.querySelector('span');
+                    if (spanIcon) {
+                        spanIcon.innerHTML = mobServices.classList.contains('open') ? '▲' : '▼';
+                    }
+                });
+            }
+
+            // Закрытие бургера при клике вне его (с проверкой на клик внутри подменю)
+            const burgerToggle = document.getElementById('burgerToggle');
+            const mobileMenu = document.querySelector('.menumob');
+            if (burgerToggle && mobileMenu) {
+                document.addEventListener('click', function (event) {
+                    // Проверяем, был ли клик внутри бургера или внутри мобильного меню (включая подменю)
+                    const isInsideBurger = burgerToggle.parentElement.contains(event.target);
+                    const isInsideMenu = mobileMenu.contains(event.target);
+
+                    // Если клик был вне обоих элементов, закрываем меню
+                    if (!isInsideBurger && !isInsideMenu && burgerToggle.checked) {
+                        burgerToggle.checked = false;
+                    }
+                });
+            }
+
+            // Кнопки "Оставить заявку"
+            const requestBtns = document.querySelectorAll('#One, .menumob8 a');
+            requestBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    if (btn.getAttribute('href') === '#') e.preventDefault();
+                    alert('Форма заявки откроется в ближайшее время. Спасибо за интерес!');
+                });
+            });
+
+            // Дополнительно: закрываем подменю при клике на любой пункт внутри него (чтобы меню не закрывалось до перехода)
+            const submenuLinks = document.querySelectorAll('.mobile-submenu a');
+            submenuLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    // Не закрываем бургер-меню сразу, чтобы переход успел сработать
+                    // Но можно добавить задержку для закрытия, если нужно
+                    // burgerToggle.checked = false;
+                });
+            });
+        })();
+    </script>
+
+
+
+</body>
+
+</html>

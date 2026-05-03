@@ -48,7 +48,23 @@
             margin: 0 auto;
             padding: 0 15px;
         }
+/* Убираем синий цвет и подчёркивание у всех ссылок в шапке */
+a
+.iten a,
 
+.menumob a,
+.avito-logo a,
+.men a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+/* Дополнительно для hover-состояния */
+.iten a:hover,
+.menumob a:hover {
+    color: #FF8C42 !important;
+    text-decoration: none !important;
+}
         /* Стили для верхней информационной панели как у Авито */
         .top-info {
             background-color: #464545;
@@ -1259,7 +1275,11 @@
 
 .novinka{
     background-color: white;
+    padding: 60px 0; margin: auto;
+     /* background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); */
+    background: linear-gradient(135deg, #a8c0d8 0%, #efb762 100%);
 }
+
 /* # ============================Novinka_END============= */
 
     </style>
@@ -1268,7 +1288,7 @@
 <body>
 
 
-    <!-- Верхняя информационная панель -->
+    
     <!-- Верхняя информационная панель -->
     <div class="top-info">
         <div class="container">
@@ -1312,15 +1332,15 @@
 <div style="display: flex; gap: 80px;">
 
     <!-- Десктопное меню -->
-    <div class="iten">
-        <button class="iten1"><a href="ВыборАренды.html"><strong style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a></button>
-        <button class="iten2"><a href="ВыборАренды.html">Аренда</a></button>
-        <button class="iten3"><a href="ВыборТуров.html">Туры</a></button>
-        <button class="iten4"><a href="Галерея.html">Галерея</a></button>
-        <button class="iten5"><a href="оНас.html">О нас</a></button>
-        <button class="iten6"><a href="Контакты.html">Контакты</a></button>
-        <button class="iten7"><a href="Отзовы.html">Отзывы</a></button>
-    </div>
+  <div class="iten">
+    <a href="ВыборАренды.html" class="iten1"><strong style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a>
+    <a href="ВыборАренды.html" class="iten2">Аренда</a>
+    <a href="ВыборТуров.html" class="iten3">Туры</a>
+    <a href="Галерея.html" class="iten4">Галерея</a>
+    <a href="оНас.html" class="iten5">О нас</a>
+    <a href="Контакты.html" class="iten6">Контакты</a>
+    <a href="Отзовы.html" class="iten7">Отзывы</a>
+</div>
 <div>
             <button id="One" class="btn">Оставить заявку</button>
         </div>
@@ -1369,7 +1389,7 @@
         <header>
             <div class="container">
                 <h1>ОТКРОЙТЕ МИР ВОДНЫХ ПРИКЛЮЧЕНИЙ</h1>
-                <p>Аренда сапов и картинга на гидроциклах — выбери своё настроение на воде</p>
+                <p>От сапов до водного картинга — и даже больше.</p>
                 <a href="ВыборТуров.html" class="btn"
                     style="background: linear-gradient(45deg, #7472e6, #FF8C42);">Картинг
                     </a>
@@ -1377,17 +1397,36 @@
                     style="background: linear-gradient(45deg, #7472e6, #FF8C42);">Арендовать</a>
             </div>
         </header>
-        <section class="novinka" style="padding: 60px 0; background: #f5f9fc;">
-    <div style="display: flex; gap: 50px; margin: auto; max-width: 80%; justify-content: space-evenly; align-items: center;">
+<section class="novinka" >
+
+    
+    <div style="    padding: 50px;    margin-left: 50px;
+    margin-right: 50px;
+    border: 3px solid orange;
+    box-sizing: border-box; display: flex; gap: 50px; margin: auto; max-width: 1400px; justify-content: space-evenly; align-items: center; flex-wrap: wrap;">
         
-        <!-- Текстовая часть -->
-        <div style="flex: 1;">
-            <span style="background: #ff6b35; color: white; font-size: 14px; font-weight: bold; padding: 5px 15px; border-radius: 30px; display: inline-block; margin-bottom: 15px;">🔥 НОВИНКА 2026</span>
+        <div style="flex: 1; min-width: 280px;">
+            <span style="background: #ff6b35; color: white; font-size: 28px; font-weight: bold; padding: 5px 15px; border-radius: 30px; display: inline-block; margin-bottom: 15px;">🔥 НОВИНКА 2026</span>
             <h2 style="margin: 0 0 15px 0; font-size: 42px;">Водный картинг</h2>
             <p style="font-size: 18px; line-height: 1.5; color: #333;">Водный картинг — новый аттракцион, где вы управляете компактным водным картом, скользя по воде на высокой скорости. Драйв, брызги и крутые виражи без прав и специальной подготовки.</p>
             
-            <h3 style="margin: 25px 0 15px 0;">Почему стоит попробовать уже сегодня:</h3>
-            <ul style="list-style: none; padding: 0;">
+            <!-- Блок с акцией -->
+            <div style="    border-bottom: 3px solid orange;
+    /* background: #ff6b35; */
+    /* color: black; */
+    border-radius: 50px;
+    padding: 8px 20px;
+    display: inline-block;
+    margin: 15px 0;">
+                <span style="font-weight: bold;">🎁 До 31 мая — скидка 20% на первый заезд</span>
+            </div>
+            
+            <h3 style="margin: 20px 0 15px 0;">Почему стоит попробовать:</h3>
+            <ul style="    border-left: 3px solid #ff8c42;
+    border-radius: 20px;
+    list-style: none;
+    padding-left: 20px;
+    /* padding: 0;">
                 <li style="margin-bottom: 12px;">✅ Управление проще, чем кажется — хватит 5 минут инструктажа</li>
                 <li style="margin-bottom: 12px;">💨 Вы почувствуете скорость там, где раньше только плавали</li>
                 <li style="margin-bottom: 12px;">🛡️ Это безопаснее, чем кажется — устойчивый карт и полная экипировка</li>
@@ -1395,14 +1434,14 @@
                 <li style="margin-bottom: 12px;">🎉 Отличный вариант для свидания, встречи с друзьями или корпоратива</li>
             </ul>
             
-            <button style="background: #1a5f7a; color: white; border: none; padding: 14px 35px; border-radius: 40px; font-size: 18px; font-weight: bold; margin-top: 20px; cursor: pointer; transition: 0.3s;">
-                🚤 Записаться на тест-драйв →
+            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
+                    style="background: #1a5f7a; color: white; border: none; padding: 14px 35px; border-radius: 40px; font-size: 18px; font-weight: bold; margin-top: 20px; cursor: pointer; transition: 0.3s;">
+                🚤 Подробнее →
             </button>
         </div>
         
-        <!-- Картинка -->
-        <div style="flex: 1; text-align: center;">
-            <img src="img/novinka.png" alt="Водный картинг" style="max-width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <div style="flex: 1; min-width: 280px; text-align: center;">
+            <img src="img/novinka.png" alt="Водный картинг" style="max-width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
         </div>
     </div>
 </section>
@@ -1451,7 +1490,7 @@
 
 Сапы, каяки, гидроциклы и не только. Просто выбирай снаряд, получай инструктаж и отправляйся в своё приключение. Без лишних людей. Без навязанных маршрутов.</p>
                         </div>
-                         <a style="margin-top: 10px;" href="ВыборТуров.html" class="btn"> подробнее...
+                         <a style="margin-top: 10px;" href="ВыборТуров.html" class="btn"> подробнее →
                             </a>
                     </div>
                     <div class="adventure-card">
@@ -1466,7 +1505,7 @@
                             <p class="P_border_left">Для тех, кто хочет скорости и адреналина.
 Садитесь за руль гидроцикла и устройте настоящий водный картинг. Виражи, газ в пол, брызги за спиной — всё, чтобы забыть обо всём. Без туров. Без гидов. Просто драйв.</p>
                         </div>
-                        <a style="margin-top: 10px;" href="ВыборТуров.html" class="btn"> подробнее...
+                        <a style="margin-top: 10px;" href="ВыборТуров.html" class="btn"> подробнее →
                             </a>
 
                     </div>

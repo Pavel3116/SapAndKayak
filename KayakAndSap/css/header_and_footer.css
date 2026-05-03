@@ -7,7 +7,7 @@ a {
 .iten a,
 .iten button a,
 .menumob a,
-.sap_and_kayak-logo a,
+.avito-logo a,
 .men a {
     color: inherit !important;
     text-decoration: none !important;
@@ -210,17 +210,17 @@ body {
 }
 
 /* ========================================
-   4. ЛОГОТИП (.sap_and_kayak-logo, .logo-text)
+   4. ЛОГОТИП (.avito-logo, .logo-text)
    ======================================== */
 
-.sap_and_kayak-logo {
+.avito-logo {
     margin-left: 20px;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.sap_and_kayak-logo svg {
+.avito-logo svg {
     height: 40px;
     width: auto;
 }
@@ -509,7 +509,7 @@ body {
    ======================================== */
 
 header {
-    background: linear-gradient(rgba(241, 232, 202, 0.3), rgba(48, 41, 28, 0.8)), url('../img/image.png');
+    background: linear-gradient(rgba(241, 232, 202, 0.3), rgba(48, 41, 28, 0.8)), url('./img/image.png');
     background-size: cover;
     background-position: center;
     color: var(--light-text);
@@ -741,7 +741,7 @@ footer {
 }
 
 @media (max-width: 500px) {
-    .sap_and_kayak-logo {
+    .avito-logo {
         max-width: 80px;
         /* margin-left: 70px; */
     }
