@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sup&Kaik</title>
-    <link rel="icon" type="image/x-icon" href="./img/logo/Logo.png">
+    <link rel="icon" type="image/x-icon" href="./img/logo/Untitled.png">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -106,6 +106,19 @@
     justify-content: space-between;
 }
 
+   .main-nav {
+            background: linear-gradient(45deg, #f0b547,#f3aed4, #5948bb);
+            background-color: #cac8c8;
+            opacity: 0.76;
+            padding: 15px 0;
+        }
+        
+  .main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
 /* For the items inside */
 .iten {
      white-space: nowrap; /* Запрещает перенос текста */
@@ -149,7 +162,7 @@
         }
 
         .logo-text {
-            font-size: 1.8rem;
+            font-size: 30px;
             font-weight: bold;
             text-decoration: none;
             margin-left: 5px;
@@ -687,12 +700,58 @@
             }
         }
 
-        .iten2 {
+        .iten1 {
+           font-size: 18px;
            size: 20px;
-            display: flex;
+           display: flex;
+            
+        }
+        .iten2 {
+           font-size: 18px;
+           
+            
+        }
+        .iten3 {
+           font-size: 18px;
+          
+            
+        }
+        .iten4 {
+           font-size: 18px;
+         
+            
+        }
+        .iten5 {
+           font-size: 18px;
+           
+            
+        }
+        .iten6 {
+           font-size: 18px;
+           
+            
+        }
+        .iten7 {
+           font-size: 18px;
+         
             
         }
         .iten2:hover{
+            color:#FF8C42;
+        }
+        .iten3:hover{
+            color:#FF8C42;
+        }
+        .iten4:hover{
+            color:#FF8C42;
+        }
+        .iten5:hover{
+            color:#FF8C42;
+        }
+        .iten6:hover{
+            color:#FF8C42;
+        }
+        .iten7:hover{
             color:#FF8C42;
         }
 
@@ -806,9 +865,9 @@
     }
  }
  @media(max-width:1150px){
-    .iten{
+    /* .iten{
         display: none;
-    }
+    } */
     .burg{
         display: block;
     }
@@ -1097,9 +1156,7 @@
     }
 }
 @media (max-width: 1585px) {
-    /* .iten {
-        display: none;
-    } */
+    
      #One{
         display: none;
      }
@@ -1136,7 +1193,7 @@
         flex-wrap: wrap !important;
     }
 }
-@media(max-width:1367px){
+@media(max-width:1479px){
     .iten7{
         display: none;
     }
@@ -1150,7 +1207,61 @@
         display: block;
     }
 }
-Вот полн
+@media(max-width:1297px){
+    .iten5{
+        display: none;
+    }
+    .iten4{
+        display: none;
+    }
+    .menumob5{
+        display: block;
+    }
+    .menumob4{
+        display: block;
+    }
+   
+}
+@media(max-width:1139px){
+    .iten3{
+        display: none;
+    }
+    .iten2{
+        display: none;
+    }
+    .iten1{
+        display: none;
+    }
+    .menumob3{
+        display: block;
+    }
+    .menumob2{
+        display: block;
+    }
+    .menumob1{
+        display: block;
+    }
+   
+}
+
+@media(max-width:370px){
+   .logo-text{
+    font-size: 16px;
+   }
+   .avito-style-header .men{
+    gap: 1px;
+   }
+}
+
+
+
+/* # ============================Novinka_START============= */
+
+.novinka{
+    background-color: white;
+}
+/* # ============================Novinka_END============= */
+
     </style>
 </head>
 
@@ -1190,12 +1301,12 @@
 
     <!-- Шапка в стиле Авито -->
   <!-- Шапка в стиле Авито -->
-<div class="avito-style-header">
+<div class="avito-style-header main-nav">
     <div class="men">
         <div class="avito-logo">
-            <img src="./img/logo/Logo.png" alt="Логотип" style="max-width: 100px;">
-            <a href="home" class="logo-text">
-                <span>Drive</span>&<span>Sport</span>
+            <img src="./img/logo/Untitled.png" alt="Логотип" style="max-width: 100px;">
+            <a href="home" class="logo-text" >
+                <span>Sap</span><span>&</span><span>Kayak</span>
             </a>
         </div>
 <div style="display: flex; gap: 80px;">
@@ -1204,7 +1315,7 @@
     <div class="iten">
         <button class="iten1"><a href="ВыборАренды.html"><strong style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a></button>
         <button class="iten2"><a href="ВыборАренды.html">Аренда</a></button>
-        <button class="iten3"><a href="Karting.html">Картинг</a></button>
+        <button class="iten3"><a href="ВыборТуров.html">Туры</a></button>
         <button class="iten4"><a href="Галерея.html">Галерея</a></button>
         <button class="iten5"><a href="оНас.html">О нас</a></button>
         <button class="iten6"><a href="Контакты.html">Контакты</a></button>
@@ -1227,7 +1338,7 @@
             <ul class="menumob">
                 <li class="menumob1"><a href="ВыборАренды.html"><strong style="border-bottom: 3px solid #FF7C4A;">Главная</strong></a></li>
                 <li class="menumob2"><a href="ВыборАренды.html">Аренда</a></li>
-                <li class="menumob3"><a href="Karting.html">Картинг</a></li>
+                <li class="menumob3"><a href="ВыборТуров.html">Туры\прогулки</a></li>
                 <li class="menumob4"><a href="Галерея.html">Галерея</a></li>
                 <li class="menumob5" ><a href="оНас.html">О нас</a></li>
                 <li class="menumob6"><a href="Контакты.html">Контакты</a></li>
@@ -1266,14 +1377,60 @@
                     style="background: linear-gradient(45deg, #7472e6, #FF8C42);">Арендовать</a>
             </div>
         </header>
+        <section class="novinka" style="padding: 60px 0; background: #f5f9fc;">
+    <div style="display: flex; gap: 50px; margin: auto; max-width: 80%; justify-content: space-evenly; align-items: center;">
+        
+        <!-- Текстовая часть -->
+        <div style="flex: 1;">
+            <span style="background: #ff6b35; color: white; font-size: 14px; font-weight: bold; padding: 5px 15px; border-radius: 30px; display: inline-block; margin-bottom: 15px;">🔥 НОВИНКА 2026</span>
+            <h2 style="margin: 0 0 15px 0; font-size: 42px;">Водный картинг</h2>
+            <p style="font-size: 18px; line-height: 1.5; color: #333;">Водный картинг — новый аттракцион, где вы управляете компактным водным картом, скользя по воде на высокой скорости. Драйв, брызги и крутые виражи без прав и специальной подготовки.</p>
+            
+            <h3 style="margin: 25px 0 15px 0;">Почему стоит попробовать уже сегодня:</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 12px;">✅ Управление проще, чем кажется — хватит 5 минут инструктажа</li>
+                <li style="margin-bottom: 12px;">💨 Вы почувствуете скорость там, где раньше только плавали</li>
+                <li style="margin-bottom: 12px;">🛡️ Это безопаснее, чем кажется — устойчивый карт и полная экипировка</li>
+                <li style="margin-bottom: 12px;">📸 Идеально для фото и видео — ваши подписчики оценят</li>
+                <li style="margin-bottom: 12px;">🎉 Отличный вариант для свидания, встречи с друзьями или корпоратива</li>
+            </ul>
+            
+            <button style="background: #1a5f7a; color: white; border: none; padding: 14px 35px; border-radius: 40px; font-size: 18px; font-weight: bold; margin-top: 20px; cursor: pointer; transition: 0.3s;">
+                🚤 Записаться на тест-драйв →
+            </button>
+        </div>
+        
+        <!-- Картинка -->
+        <div style="flex: 1; text-align: center;">
+            <img src="img/novinka.png" alt="Водный картинг" style="max-width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        </div>
+    </div>
+</section>
+
+<style>
+    @media (max-width: 768px) {
+        .novinka > div {
+            flex-direction: column;
+            gap: 30px !important;
+            max-width: 90% !important;
+            text-align: center;
+        }
+        .novinka ul {
+            text-align: left;
+        }
+        button {
+            width: 100%;
+        }
+    }
+</style>
 
         <!-- Остальной контент без изменений -->
         <section class="equipment" >
             <div class="container">
                 <h2 class="section-title">Аренда сапов & гидроциклов, водный картинга — выбери своё настроение на воде</h2>
                 <p class="P_border_left">
-                    <strong><em>Drive&Sport</em></strong>
- — это твоя личная формула водного счастья. Бери SUP и плыви в своём ритме, наслаждаясь тишиной и простором. Садись за штурвал гидроцикла — и устрой водный картинг с виражами, брызгами и адреналином. Никакой скуки, только вода, скорость и свобода. Приезжай в DroveSport — докажи волнам, кто здесь главный.
+                    <strong><em>Sap&Kayak</em></strong>
+ — это твоя личная формула водного счастья. Бери SUP и плыви в своём ритме, наслаждаясь тишиной и простором. Садись за штурвал гидроцикла — и устрой водный картинг с виражами, брызгами и адреналином. Никакой скуки, только вода, скорость и свобода. Приезжай в DroveKayak — докажи волнам, кто здесь главный.
                 </p>
             </div>
         </section>
@@ -1483,7 +1640,7 @@
 
         <footer>
             <div class="container">
-                <p>&copy; 2025 DRIVE&SPORT Водные Приключения. Все права защищены.</p>
+                <p>&copy; 2025 Sap&Kayak Водные Приключения. Все права защищены.</p>
                 <p>Разработано с любовью к водным видам спорта</p>
             </div>
         </footer>

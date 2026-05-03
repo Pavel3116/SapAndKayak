@@ -7,8 +7,8 @@ li {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
+    /* font-size: 100%; */
+    /* font: inherit; */
     vertical-align: baseline;
 }
 
@@ -501,19 +501,7 @@ a {
 
 
 
-/*! CSS Used from: https://www.avito.st/dstatic/css/legacy/reset.css */
-div,
-span,
-p,
-a,
-label {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
+
 
 /*! CSS Used from: https://www.avito.st/dstatic/build/client/css/bootstrap.4aee89b6e46a42b8.css */
 * {
@@ -6574,21 +6562,7 @@ div.index-rootDesign2023-Bao6L {
 }
 
 /*! CSS Used from: https://www.avito.st/dstatic/css/legacy/reset.css */
-div,
-span,
-h2,
-h5,
-p,
-a,
-img,
-strong {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
+
 
 /*! CSS Used from: https://www.avito.st/dstatic/build/client/css/bootstrap.4aee89b6e46a42b8.css */
 * {
